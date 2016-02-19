@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/21 ?U?? 01:29:16 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_09_order.model.OrderVO" table="[ORDER]">
+        <id name="order_id" type="java.lang.Integer">
+            <column name="ORDER_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="member_account" class="_06_member.model.MemberVO" fetch="join">
+            <column name="MEMBER_ACCOUNT" />
+        </many-to-one>
+        <many-to-one name="guest_id" class="_05_guest.model.GuestVO" fetch="join">
+            <column name="GUEST_ID" />
+        </many-to-one>
+        <property name="room_type" >
+            <column name="ROOM_TYPE" />
+        </property>
+        <many-to-one name="room_id" class="_11_room.model.RoomVO" fetch="join">
+            <column name="room_id" />
+        </many-to-one>
+        <property name="checkin_date" >
+            <column name="CHECKIN_DATE" />
+        </property>
+        <property name="checkout_date" >
+            <column name="CHECKOUT_DATE" />
+        </property>
+        <property name="adults" >
+            <column name="ADULTS" />
+        </property>
+        <property name="children" >
+            <column name="CHILDREN" />
+        </property>
+        <property name="total_payment" >
+            <column name="TOTAL_PAYMENT" />
+        </property>
+        <property name="note" >
+            <column name="NOTE" />
+        </property>
+        <property name="transaction_condition" >
+            <column name="TRANSACTION_CONDITION" />
+        </property>
+        <property name="book_date" >
+            <column name="BOOK_DATE" />
+        </property>
+        <set name="bean" table="FAC_DETAIL" inverse="true" lazy="true" >
+            <key>
+                <column name="ORDER_ID" />
+            </key>
+            <one-to-many class="_03_fac_detail.model.Fac_detailVO" />
+        </set>
+    </class>
+</hibernate-mapping>

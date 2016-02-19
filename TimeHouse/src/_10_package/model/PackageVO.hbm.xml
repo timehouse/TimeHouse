@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/22 ?U?? 05:33:08 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_10_package.model.PackageVO" table="PACKAGE">
+        <id name="package_id" type="java.lang.Integer">
+            <column name="PACKAGE_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <many-to-one name="roomtype" class="_13_roomtype.model.RoomTypeVO" fetch="join">
+            <column name="roomType_id" />
+        </many-to-one>
+        <property name="price" type="java.lang.Integer">
+            <column name="PRICE" />
+        </property>
+        <property name="start_date" type="java.util.Date">
+            <column name="START_DATE" />
+        </property>
+        <property name="end_date" type="java.util.Date">
+            <column name="END_DATE" />
+        </property>
+        <property name="pic">
+            <column name="pic" />
+        </property>
+        <property name="context" type="java.lang.String">
+            <column name="CONTEXT" />
+        </property>      
+    </class>
+</hibernate-mapping>

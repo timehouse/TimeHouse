@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>TimeHouse</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <resource-ref>
+    <res-ref-name>jdbc/DataSource</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+    <res-sharing-scope>Shareable</res-sharing-scope>
+  </resource-ref>
+  
+  <servlet>
+  	<servlet-name>Servlet01</servlet-name>
+  	<servlet-class>_03_member_password.controller.ChangePasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Servlet01</servlet-name>
+  	<url-pattern>/changePassword.controller</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+	<servlet-name>Servlet02</servlet-name>
+	<servlet-class>_02_member_login.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Servlet02</servlet-name>
+	<url-pattern>/member/logout.controller</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>Servlet03</servlet-name>
+	<servlet-class>_03_member_password.controller.FogetPasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Servlet03</servlet-name>
+	<url-pattern>/forgetPassword.controller</url-pattern>
+  </servlet-mapping>
+
+</web-app>

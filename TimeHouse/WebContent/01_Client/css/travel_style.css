@@ -1,0 +1,623 @@
+@charset "utf-8";
+@import url("travel.css");
+/* CSS Document */
+
+html, body { 
+	height: 100%;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	background-image:url(../images/concrete_seamless.png);
+	background-position:left top;
+	background-repeat:repeat; }
+a{
+	text-decoration:none;
+}
+.wrap {
+	height:100%;
+	min-height: 100%;
+	*display: table; /* For IE7 Hack */
+	*height: 100%; /* For IE7 Hack */}
+.main {
+	height:100%;
+	min-height:100%; 
+	/*overflow:hidden; 
+	padding-bottom:36px;*/} /* must be same height as the footer */
+	
+.logo_phone{
+	visibility:hidden;
+	position:absolute;
+	width:170px;
+	left:50px;
+	top:10px;
+	font-weight:bold;}
+		
+/*================HEADER================*/	
+/*===HEADER===*/
+.header{
+	position: absolute;
+	width:100%;
+	height:110px;
+	top:0px;
+	left:0px;
+	font-size:18px;
+	color:#000;
+	background-color:rgba(0, 168, 183, 0.9);
+	z-index:8888;}
+
+.logo_page{
+	float:left;
+	width:201px;
+	height:80px;
+	margin:15px 15px 0 15px;}
+	
+.logo_page h1{
+	display:block;
+	width:201px;
+	height:80px;
+	background-image: url(../images/logo_page.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	text-indent:-9999px;}
+	
+.main_nav{
+	float:left;
+	margin-top:60px;}
+	
+.main_nav ul{}
+
+.main_nav ul li{
+	float:left;}
+
+.main_nav ul li a{
+	display:block;
+	
+	font-size:18px;
+	color:#FFF;
+	margin:5px;
+	padding:5px;
+	-moz-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	outline:none;}
+
+.main_nav ul li a:hover{
+	color:#1bbc9b;
+	background-color:#fff;}
+	
+.top_links{
+	position:absolute;
+	top:5px;
+	right:5px;
+	margin-top:0px;}
+	
+.top_menu{
+	float:right;}
+
+.top_menu ul{}
+
+.top_menu ul li{
+	float:right;}
+
+.top_menu ul li a{
+	display:block;
+	
+	font-size:16px;
+	color:#FFF;
+	margin:5px 10px 0 0;
+	padding-right:10px;
+	border-right:1px dotted #fff;
+	-moz-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	outline:none;}
+	
+.top_menu ul li a.fb_icon{
+	display:block;
+	width:15px;
+	height:29px;
+	text-indent:-9999px;
+	margin:0 10px 0 0;
+	background-image:url(../images/fb_toplinks.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	border-right:0px solid #fff;}
+	
+.top_menu ul li a.top_contact{
+	display:block;}
+	
+.top_menu ul li a.top_notice{
+	display:block;}
+	
+.top_menu ul li a.top_home{
+	display:block;}
+
+.top_menu ul li a:hover{
+	color:#333;}
+
+/*================HEADER END================*/
+
+/*================TOPLINKS================*/
+
+.toplinks{
+	z-index:9999;
+	position:absolute;
+	width:360px;
+	height:30px;
+	top:0px;
+	right:0px;
+	padding-top:8px;
+	padding-left:20px;
+	background-image: url(../images/bg_header.png);
+	background-position:left top;
+	background-repeat:repeat;
+	-webkit-border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;}
+	
+.toplinks ul{}
+
+.toplinks ul li{
+	float:left;}
+
+.toplinks ul li.links_home a{
+	display:block;
+	height:22px;
+	line-height:22px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	font-weight:bold;
+	text-decoration:none;
+	padding-right:10px;
+	margin-right:10px;
+	border-right:1px solid #fff;
+	outline:none;}
+	
+.toplinks ul li.links_contact a{
+	display:block;
+	height:22px;
+	line-height:22px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	font-weight:bold;
+	text-decoration:none;
+	margin-right:10px;
+	outline:none;}
+	
+.toplinks ul li.links_fb a{
+	display:block;
+	margin-right:10px;}
+	
+.toplinks ul li.links_fb_good{
+	display:block;
+	padding-top:1px;}
+
+.toplinks ul li a:hover{
+	color:#c99f63;}
+	
+/*================TOPLINKS END================*/
+	
+/*===FOOTER===*/
+.footer{
+	position: relative;
+	margin-top: -65px; /* negative value of footer height */
+	height: 50px;
+	clear:both;
+	z-index:7777;
+	width:98%;
+	padding:10px 1% 5px 1%;
+	font-size:12px;
+	color: #FFF;
+	text-align:right;
+	background-color:rgba(0, 0, 0, 0.75);}
+	
+.FooterLogo{
+	float:left;
+	height:17px;
+	
+	font-size:16px;
+	color: #FFF;
+	padding-left:25px;
+	margin-right:20px;
+	background-image:url(../images/footer_logo.png);
+	background-position:left top;
+	background-repeat:no-repeat;}
+	
+.FooterNav{
+	overflow:hidden;}
+
+.FooterNav a{
+	display:block;
+	float:left;
+	font-size:15px;
+	color: #FFF;
+	margin-top:2px;
+	margin-right:10px;
+	padding-right:10px;
+	border-right:1px solid #fff;
+	-moz-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	outline:none;}
+	
+.FooterNav a:hover{
+	color:#00bbcb;
+	}
+
+.copyright{
+	clear:both;
+	float:right;
+	margin-top:5px;}
+	
+a.line_end{
+	border-right:0px solid #fff;}
+	
+.rwd-break{
+	display:none;}
+	
+@media screen and (max-width: 1024px) {
+	
+.header{
+	position: fixed;
+	width:100%;
+	height:50px;
+	top:0px;
+	left:0px;
+	font-size:18px;
+	color:#000;
+	background-color:rgba(0, 168, 183, 0.9);
+	z-index:9998;}
+	
+.logo_page{
+	float:left;
+	width:201px;
+	height:36px;
+	margin:11px 0 0 80px;}
+	
+.logo_page h1{
+	display:block;
+	width:201px;
+	height:36px;
+	background-image: url(../images/page_logo_tn.png);
+	background-position:left 5px;
+	background-repeat:no-repeat;
+	padding-left:27px;
+	font-size:20px;
+	color:#FFF;
+	text-indent:0px;}
+	
+.logo_page h1 a{
+	color:#FFF;}
+	
+	}
+	
+	
+@media screen and (max-width: 800px) {
+
+.top_links{
+	display:none;
+	position:absolute;
+	top:0px;
+	right:5px;
+	margin-top:0px;}
+	
+.logo_phone{
+	visibility:visible;
+	position:absolute;
+	width:170px;
+	left:50px;
+	top:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#FFF;
+	text-align:center;
+	text-decoration:none;
+	font-weight:bold;}
+	
+.buttonset{
+	visibility:visible;
+	position:absolute;
+	width:28px;
+	height:28px;
+	top:5px;
+	right:20px;}
+	
+#showLeftPush{
+	width:28px;
+	height:28px;
+	text-indent:-9999px;
+	border:none;
+	background-image:url(../images/push_menu.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	background-color: transparent;
+	cursor:pointer;
+	outline:none;}
+	
+#showLeftPush:active{
+	background-position:left bottom;}
+	
+.footer{
+	position: relative;
+	margin-top: -80px; /* negative value of footer height */
+	height: 65px;
+	clear:both;
+	z-index:7777;
+	width:98%;
+	padding:10px 1% 5px 1%;
+	font-size:12px;
+	color: #FFF;
+	text-align:right;
+	background-color:rgba(0, 0, 0, 0.75);}
+	
+#footer {
+	float:left;
+	width:100%;
+	height:120px;
+	background-color:rgba(151, 30, 35, 0.9);
+	border-top:1px solid #be2a20;
+	z-index:9999;
+	margin-top:-121px;
+	position: relative;
+	clear:both;}
+	
+#footer .footer_logo{
+	float:left;
+	width:131px;
+	height:109px;
+	text-indent:-9999px;
+	margin-right:20px;
+	margin-top:5px;
+	background-image:url(../images/logo_footer.png);
+	background-position:left top;
+	background-repeat:no-repeat;}
+
+.booking{
+	float:right;
+	margin-bottom:15px;}
+	
+.booking_title{
+	display:none;
+	float:left;
+	height:23px;
+	line-height:23px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#FFF;
+	font-weight:bold;
+	padding-left:18px;
+	background-image:url(../images/icon_booking.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	margin-right:5px;}
+	
+.checkin{
+	display:none;
+	float:left;
+	height:23px;
+	line-height:23px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#FFF;
+	margin-right:5px;}
+	
+.checkout{
+	display:none;
+	float:left;
+	height:23px;
+	line-height:23px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#FFF;
+	margin-right:5px;}
+	
+.inquiry{
+	display:none;
+	float:left;
+	margin-right:20px;}
+	
+.inquiry .submit {
+	display:none;
+	float:left;
+	height:23px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#fff;
+	font-weight:bold;
+	padding:0 10px;
+	background-color:#169bac;
+	border-style:none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	outline:none;}
+	
+.inquiry .submit:hover{
+	display:none;
+	background-color:#000;
+	color:#fff;
+	cursor: pointer;}
+	
+.footer_links{
+	float:left;}
+	
+.footer_links a{
+	height:23px;
+	line-height:23px;
+	float:left;
+	display:block;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#fff;
+	text-decoration:none;
+	font-weight:bold;
+	margin-right:10px;
+	padding-right:10px;
+	border-right:1px solid #cb8f91;
+	transition: all 0.4s;
+	-o-transition: all 0.4s;visibility:visible;
+	-moz-transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	outline:none;}
+	
+.footer_links a.booking_btn{
+	visibility: visible;
+	width:auto;
+	margin-right:10px;
+	padding-right:10px;
+	border-right:1px solid #cb8f91;}
+	
+#footer .copyright p{
+	display:block;
+	float:right;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#fff;
+	text-align:left;
+	line-height:20px;
+	padding-right:0px;}
+	
+#footer .webdesign{
+	display:none;
+	float:right;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#fff;
+	text-align:left;
+	line-height:20px;}	
+	
+	}
+
+@media screen and (max-width: 640px) {
+	
+html,body{
+	position:relative;
+	width:100%;
+	height:100%;
+	color:#333;
+	background-color:#fff;
+	}
+
+.wrap {
+	height: auto;
+	min-height: 100%;
+	*display: table; /* For IE7 Hack */
+	*height: 100%; /* For IE7 Hack */}
+.main {
+	height: auto;
+	min-height:100%;
+	padding-bottom:80px; 
+	/*overflow:hidden; 
+	padding-bottom:36px;*/} /* must be same height as the footer */
+	
+.header{
+	position: fixed;
+	width:100%;
+	height:50px;
+	top:0px;
+	left:0px;
+	font-size:18px;
+	color:#000;
+	background-color:rgba(0, 168, 183, 0.9);
+	z-index:9998;}
+	
+.logo_phone{
+	visibility:visible;
+	position:absolute;
+	width:170px;
+	left:50px;
+	top:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#FFF;
+	text-align:center;
+	text-decoration:none;
+	font-weight:bold;}
+
+#header{
+	z-index:9999;
+	position: relative;
+	height:36px;
+	width:100%;
+	background-color:#971e23;
+	border-bottom:1px solid #be2a20;}
+
+.logo_phone{
+	visibility:visible;
+	position:absolute;
+	width:170px;
+	left:50px;
+	top:10px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#FFF;
+	text-align:center;
+	text-decoration:none;
+	font-weight:bold;
+	cursor: default;}
+
+.logo_hotel{
+	font-weight:100;}
+	
+.buttonset{
+	visibility:visible;
+	position:absolute;
+	width:28px;
+	height:28px;
+	top:5px;
+	right:20px;}
+	
+/*===FOOTER===*/
+	
+.footer{
+	position: relative;
+	/*margin-top: -135px;*/ /* negative value of footer height */
+	height: 170px;
+	clear:both;
+	width:97%;
+	padding:15px 1% 5px 2%;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color: #FFF;
+	text-align:right;
+	background-color:rgba(0, 0, 0, 1);
+	z-index:8888;}	
+	
+.FooterNav{
+	margin-bottom:8px;
+	overflow:hidden;}
+	
+.FooterNav a{
+	display:block;
+	width:52px;
+	float:left;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color: #FFF;
+	text-align:left;
+	margin-top:0px;
+	margin-right:10px;
+	padding-right:10px;
+	padding-bottom:5px;
+	border-right:1px solid #fff;}
+	
+.line_end{
+	border-right:1px solid #fff;}
+	
+.rwd-break{
+	display:block;}
+	
+.copyright_en{
+	display:none;}
+	
+}

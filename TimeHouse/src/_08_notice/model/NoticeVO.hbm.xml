@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/18 ?U?? 08:13:58 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_08_notice.model.NoticeVO" table="NOTICE">
+        <id name="noticeId" type="java.lang.Integer">
+            <column name="NOTICE_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="title" >
+            <column name="TITLE" />
+        </property>
+        <property name="startdate" >
+            <column name="STARTDATE" />
+        </property>
+        <property name="enddate" >
+            <column name="ENDDATE" />
+        </property>
+        <property name="content" >
+            <column name="CONTENT" />
+        </property>
+    </class>
+</hibernate-mapping>

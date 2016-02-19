@@ -1,0 +1,271 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+html, body { 
+	height: 100%;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	background-image:url(../images/concrete_seamless.png);
+	background-position:left top;
+	background-repeat:repeat;
+	padding: 0;
+	margin: 0; }
+a{
+	text-decoration:none;
+}
+.wrap {
+	height:100%;
+	min-height: 100%;
+	*display: table; /* For IE7 Hack */
+	*height: 100%; /* For IE7 Hack */}
+.main {
+	height:100%;
+	min-height:100%; 
+	/*overflow:hidden; 
+	padding-bottom:36px;*/} /* must be same height as the footer */
+	
+.logo_phone{
+	visibility:hidden;
+	position:absolute;
+	width:170px;
+	left:50px;
+	top:10px;
+	font-weight:bold;}
+		
+/*================HEADER================*/	
+/*===HEADER===*/
+.header{
+	position: absolute;
+	width:100%;
+	height:110px;
+	top:0px;
+	left:0px;
+	font-size:20px;
+	color:#4EEE94;
+	/*background-color:rgba(78,238,148, 0.5);*/
+	background-color:rgba(0,204,102, 0.6);
+	z-index:8888;}
+
+.logo_page{
+	float:left;
+	width:201px;
+	height:80px;
+	margin:15px 15px 0 15px;}
+	
+.logo_page h1{
+	display:block;
+	width:201px;
+	height:80px;
+	background-position:left top;
+	background-repeat:no-repeat;
+	text-indent:-9999px;}
+	
+.main_nav{
+	float:left;
+	margin-top:60px;}
+	
+.main_nav ul{}
+
+.main_nav ul li{
+	float:left;}
+
+.main_nav ul li a{
+	display:block;
+	
+	font-size:18px;
+	color:#FFF;
+	margin:5px;
+	padding:5px;
+	-moz-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	outline:none;}
+
+.main_nav ul li a:hover{
+	color:#1bbc9b;
+	background-color:#fff;}
+	
+.top_links{
+	position:absolute;
+	top:5px;
+	right:5px;
+	margin-top:0px;}
+	
+.top_menu{
+	float:right;}
+
+.top_menu ul{
+    list-style-type:none;
+
+}
+
+.top_menu ul li{
+	float:right;}
+
+.top_menu ul li a{
+	display:block;
+	
+	font-size:16px;
+	color:#FFF;
+	margin:5px 10px 0 0;
+	padding-right:10px;
+    margin-left:10px;
+	border-right:1px dotted #fff;
+	-moz-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	outline:none;}
+	
+.top_menu ul li a.fb_icon{
+	display:block;
+	width:15px;
+	height:29px;
+	text-indent:-9999px;
+	margin:0 10px 0 0;
+	background-image:url(../images/fb_toplinks.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	border-right:0px solid #fff;}
+	
+.top_menu ul li a.top_contact{
+	display:block;}
+	
+.top_menu ul li a.top_notice{
+	display:block;}
+	
+.top_menu ul li a.top_home{
+	display:block;}
+
+.top_menu ul li a:hover{
+	color:#333;}
+
+/*================HEADER END================*/
+
+/*================TOPLINKS================*/
+
+.toplinks{
+	z-index:9999;
+	position:absolute;
+	width:360px;
+	height:30px;
+	top:0px;
+	right:0px;
+	padding-top:8px;
+	padding-left:20px;
+	background-position:left top;
+	background-repeat:repeat;
+	-webkit-border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;}
+
+.toplinks ul li{
+	float:left;
+    display:block;
+	height:22px;
+	line-height:22px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	font-weight:bold;
+	text-decoration:none;
+	padding-right:10px;
+	margin-right:10px;
+	border-right:1px solid #fff;
+	outline:none;
+}
+
+.toplinks ul li a:hover{
+	color:#c99f63;}
+	
+/*================TOPLINKS END================*/
+/*===FOOTER===*/
+.footer{
+	position: relative;
+	margin-top: -65px; /* negative value of footer height */
+	height: 50px;
+	clear:both;
+	z-index:7777;
+	width:98%;
+	padding:10px 1% 5px 1%;
+	font-size:12px;
+	color: #FFF;
+	text-align:right;
+	background-color:rgba(0, 0, 0, 0.75);}
+	
+	
+.FooterNav{
+	overflow:hidden;}
+
+.FooterNav a{
+	display:block;
+	float:left;
+	font-size:15px;
+	color: #FFF;
+	margin-top:2px;
+	margin-right:10px;
+	padding-right:10px;
+	border-right:1px solid #fff;
+	-moz-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	outline:none;}
+	
+.FooterNav a:hover{
+	color:#00bbcb;
+	}
+
+.copyright{
+	clear:both;
+	float:right;
+	margin-top:5px;}
+	
+a.line_end{
+	border-right:0px solid #fff;}
+	
+.rwd-break{
+	display:none;}
+	
+	.fat-nav {
+  display: block;
+  padding-top:70px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.fat-nav ul {
+  margin: 0;
+  padding: 0;
+  display:block;
+  width:1100px;/*head總寬度*/
+  height:26px;
+}
+.fat-nav li {
+  list-style-type: none;
+  text-align: left;  
+}
+.fat-nav li a {
+	display:block;
+	float:left;
+	width:84px;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	margin:2px;
+	padding-top:0px;
+	color:#fff;
+	font-size:18px;
+	text-decoration: none;
+	transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	outline:none;}
+
+.fat-nav li a:hover{
+	color:#1bbc9b;
+	background-color:rgba(255,255,255,1);}
+	

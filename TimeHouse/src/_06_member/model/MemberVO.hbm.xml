@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/21 ?U?? 01:29:16 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_06_member.model.MemberVO" table="MEMBER">
+        <id name="member_account" type="java.lang.String">
+            <column name="MEMBER_ACCOUNT" />
+        </id>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="member_last_name" type="java.lang.String">
+            <column name="MEMBER_LAST_NAME" />
+        </property>
+        <property name="member_first_name" type="java.lang.String">
+            <column name="MEMBER_FIRST_NAME" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        <property name="id_number" type="java.lang.String">
+            <column name="ID_NUMBER" />
+        </property>
+        <property name="credit_card" type="java.lang.String">
+            <column name="CREDIT_CARD" />
+        </property>
+        <property name="birthday" type="java.util.Date">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="tel" >
+            <column name="TEL" />
+        </property>
+        <property name="phone_number" >
+            <column name="PHONE_NUMBER" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="reg_date" type="java.util.Date">
+            <column name="REG_DATE" />
+        </property>
+        <property name="limit" >
+            <column name="limit" />
+        </property>
+        <set name="bean" table="MESSAGE" inverse="true" lazy="true">
+            <key>
+                <column name="MEMBER_ACCOUNT" />
+            </key>
+            <one-to-many class="_07_message.model.MessageVO" />
+        </set>
+    </class>
+</hibernate-mapping>

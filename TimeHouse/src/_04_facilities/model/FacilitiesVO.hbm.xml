@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/21 ?U?? 01:29:16 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_04_facilities.model.FacilitiesVO" table="FACILITIES">
+        <id name="f_Id" type="java.lang.Integer" access="field">
+            <column name="f_Id" />
+            <generator class="identity" />
+        </id>
+        <property name="fName"  access="field">
+            <column name="F_NAME" />
+        </property>
+        <property name="date" >
+            <column name="DATE" />
+        </property>
+        <property name="time" >
+            <column name="TIME" />
+        </property>
+        <property name="count" >
+            <column name="COUNT" />
+        </property>
+        <property name="fPic" >
+            <column name="f_Pic" />
+        </property>
+<!--         <primitive-array name="fPic" > -->
+<!--             <key> -->
+<!--                 <column name="FID" /> -->
+<!--             </key> -->
+<!--             <index></index> -->
+<!--             <element type="byte"> -->
+<!--                 <column name="FPIC" /> -->
+<!--             </element> -->
+<!--         </primitive-array> -->
+        <set name="facDetails" table="FAC_DETAIL" inverse="false" lazy="true">
+            <key>
+                <column name="F_ID" />
+            </key>
+            <one-to-many class="_03_fac_detail.model.Fac_detailVO" />
+        </set>
+    </class>
+</hibernate-mapping>

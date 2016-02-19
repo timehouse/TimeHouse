@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/21 ?U?? 01:39:27 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="_13_roomtype.model.RoomTypeVO" table="Roomtype" schema="dbo" catalog="Project" optimistic-lock="version">
+        <id name="roomType_id" type="java.lang.Integer">
+            <column name="roomType_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="room_type" type="java.lang.String">
+            <column name="room_type" />
+        </property>
+        <property name="rtCapacity_num" type="java.lang.Integer">
+            <column name="rtCapacity_num" />
+        </property>
+        <property name="rtCount" type="java.lang.Integer">
+            <column name="rtCount" />
+        </property>
+        <property name="rtWeekday_rate" type="java.lang.Integer">
+            <column name="rtWeekday_rate" />
+        </property>
+        <property name="rtWeekend_rate" type="java.lang.Integer">
+            <column name="rtWeekend_rate" />
+        </property>
+        <set name="rooms" table="Room" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="roomType_id" />
+            </key>
+            <one-to-many class="_11_room.model.RoomVO" />
+        </set>
+        <set name="packages" table="Package" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PACKAGE_ID" />
+            </key>
+            <one-to-many class="_10_package.model.PackageVO" />
+        </set>
+        <set name="roomPics" table="Room_pic" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="roomType_id" />
+            </key>
+            <one-to-many class="_12_roompic.model.RoomPicVO" />
+        </set>
+    </class>
+</hibernate-mapping>

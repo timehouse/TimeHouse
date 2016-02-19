@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/20 ?U?? 03:57:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_01_admin.model.AdminVO" table="ADMIN">
+        <id name="admin_id" type="int">
+            <column name="ADMIN_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="admin_account" >
+            <column name="ADMIN_ACCOUNT" />
+        </property>
+        <property name="password" >
+            <column name="PASSWORD" />
+        </property>
+        <property name="admin_last_name" >
+            <column name="ADMIN_LAST_NAME" />
+        </property>
+        <property name="admin_first_name" >
+            <column name="ADMIN_FIRST_NAME" />
+        </property>
+        <property name="admin_pic" type="binary" >
+            <column name="admin_pic" />
+        </property>
+ 
+<!--         <primitive-array name="admin_pic" table="ADMIN"> -->
+<!--             <key> -->
+<!--                 <column name="ADMIN_ID" /> -->
+<!--             </key> -->
+<!--             <index></index> -->
+<!--             <element type="byte"> -->
+<!--                 <column name="ADMIN_PIC" /> -->
+<!--             </element> -->
+<!--         </primitive-array> -->
+        <many-to-one name="level_num" class="_02_admin_level.model.Admin_LevelVO" fetch="join">
+            <column name="LEVEL_NUM" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/21 ?U?? 01:29:16 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_07_message.model.MessageVO" table="MESSAGE">
+        <id name="message_id" type="java.lang.Integer">
+            <column name="MESSAGE_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="member_account" class="_06_member.model.MemberVO" fetch="join" >
+            <column name="MEMBER_ACCOUNT" />
+        </many-to-one>
+         <property name="name" >
+            <column name="NAME" />
+        </property>
+        <property name="type" >
+            <column name="TYPE" />
+        </property>
+        <property name="email" >
+            <column name="EMAIL" />
+        </property>
+        <property name="message_content" >
+            <column name="MESSAGE_CONTENT" />
+        </property>
+        <property name="message_date" >
+            <column name="MESSAGE_DATE" />
+        </property>
+        <property name="reply" >
+            <column name="REPLY" />
+        </property>
+        <property name="reply_date" >
+            <column name="REPLY_DATE" />
+        </property>
+    </class>
+</hibernate-mapping>

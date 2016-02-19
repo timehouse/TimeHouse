@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/21 ?U?? 01:39:27 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+	<class name="_11_room.model.RoomVO" table="Room" schema="dbo" catalog="Project"
+		optimistic-lock="version">
+		<id name="room_id" type="java.lang.Integer">
+			<column name="room_id" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="roomType" class="_13_roomtype.model.RoomTypeVO"
+			fetch="select">
+			<column name="roomType_id" />
+		</many-to-one>
+		<property name="rStatus" type="boolean">
+			<column name="rStatus" />
+		</property>
+
+		<property name="room_type" type="java.lang.String">
+			<column name="room_type" />
+		</property>
+		<property name="rContext" type="java.lang.String">
+			<column name="rContext" length="50" />
+		</property>
+		<set name="orders" table="Order" inverse="true" lazy="true" fetch="join">
+			<key>
+				<column name="room_id" />
+			</key>
+			<one-to-many class="_09_order.model.OrderVO" />
+		</set>
+	</class>
+</hibernate-mapping>

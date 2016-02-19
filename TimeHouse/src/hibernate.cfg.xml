@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=Project</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">sa123456</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<mapping resource="_01_admin/model/AdminVO.hbm.xml" />
+		<mapping resource="_02_admin_level/model/Admin_LevelVO.hbm.xml" />
+		<mapping resource="_03_fac_detail/model/Fac_detailVO.hbm.xml" />
+		<mapping resource="_04_facilities/model/FacilitiesVO.hbm.xml" />
+		<mapping resource="_05_guest/model/GuestVO.hbm.xml" />
+		<mapping resource="_06_member/model/MemberVO.hbm.xml" />
+		<mapping resource="_07_message/model/MessageVO.hbm.xml" />
+		<mapping resource="_08_notice/model/NoticeVO.hbm.xml" />
+		<mapping resource="_09_order/model/OrderVO.hbm.xml" />
+		<mapping resource="_10_package/model/PackageVO.hbm.xml" />
+		<mapping resource="_11_room/model/RoomVO.hbm.xml" />
+		<mapping resource="_12_roompic/model/RoomPicVO.hbm.xml" />
+		<mapping resource="_13_roomtype/model/RoomTypeVO.hbm.xml" />
+		<mapping resource="_69_restaurant/model/RestaurantVO.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

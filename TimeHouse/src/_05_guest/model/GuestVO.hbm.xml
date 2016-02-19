@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/21 ?U?? 01:29:16 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_05_guest.model.GuestVO" table="GUEST">
+        <id name="guest_id" >
+            <column name="GUEST_ID" />
+            <generator class="identity" />
+        </id>
+
+        <property name="guest_last_name" type="java.lang.String">
+            <column name="GUEST_LAST_NAME" />
+        </property>
+        <property name="guest_first_name" type="java.lang.String">
+            <column name="GUEST_FIRST_NAME" />
+        </property>
+          <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        <property name="id_number" type="java.lang.String">
+            <column name="ID_NUMBER" />
+        </property>
+        <property name="tel" >
+            <column name="TEL" />
+        </property>
+        <property name="phone_number" >
+            <column name="PHONE_NUMBER" />
+        </property>
+        <property name="email" >
+            <column name="EMAIL" />
+        </property>
+        <set name="orders" table="ORDER" inverse="false" lazy="true">
+            <key>
+                <column name="GUEST_ID" />
+            </key>
+            <one-to-many class="_09_order.model.OrderVO" />
+        </set>
+    </class>
+</hibernate-mapping>

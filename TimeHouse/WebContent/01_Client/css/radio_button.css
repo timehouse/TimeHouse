@@ -1,0 +1,267 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*===景點照片===*/
+.viewpoint{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#333;
+	background-image:url(../images/goback.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px; 
+	/*width:90px; 
+	height:90px;
+	background:url(../images/travel_photo01.jpg) left top no-repeat; 
+	text-indent:-9999px;*/}
+
+.viewpoint1{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no01.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px; 
+	/*width:90px; 
+	height:90px;
+	background:url(../images/travel_photo01.jpg) left top no-repeat; 
+	text-indent:-9999px;*/}
+	
+.viewpoint2{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no02.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint3{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no03.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint4{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no04.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint5{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no05.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint6{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no06.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint7{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no07.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint8{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no08.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint9{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no09.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint10{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	background-image:url(../images/no10.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+
+
+/*===Radio Button 換成 images===*/
+.radio-toolbar_none input {
+	position: absolute;
+	border: 0;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+}
+
+/* make the label relative, add padding to the left for adding the custom radio button */
+.radio-toolbar_none input + label {
+    /*padding-left: 23px;*/
+	cursor: pointer;
+	position: relative;
+	display: inline-block;
+	line-height: 24px;
+	margin: 0 0;
+}
+
+
+/**
+ * :before will be our new button!
+ */
+ 
+.radio-toolbar_none input + label:before{
+	/*display:none\0/;*/
+}
+
+.radio-toolbar_none input + label:before {
+	content: " ";
+	z-index:9999;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	
+	/* Your size */
+	width: 26px;
+	height: 26px;
+	
+	/* Your default background color */
+	/*background-image:url(../images/check_box.png);
+	background-position:left top;
+	background-repeat:no-repeat;*/
+}
+
+.radio-toolbar_none input:checked + label:before {
+	/* Your checked background color */
+	/*background-image:url(../images/check_box.png));
+	background-position:left bottom;
+	background-repeat:no-repeat;*/
+}
+
+@media screen and (max-width: 640px) {
+	
+.viewpoint{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#333;
+	background-image:url(../images/goback.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px; 
+	/*width:90px; 
+	height:90px;
+	background:url(../images/travel_photo01.jpg) left top no-repeat; 
+	text-indent:-9999px;*/}
+
+.viewpoint1{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no01.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px; 
+	/*width:90px; 
+	height:90px;
+	background:url(../images/travel_photo01.jpg) left top no-repeat; 
+	text-indent:-9999px;*/}
+	
+.viewpoint2{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no02.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint3{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no03.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint4{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no04.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint5{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no05.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint6{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no06.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint7{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no07.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint8{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no08.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint9{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no09.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+.viewpoint10{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/no10.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:20px;}
+	
+	}

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/21 ?U?? 01:29:16 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="_03_fac_detail.model.Fac_detailVO" table="FAC_DETAIL">
+		    
+     <composite-id> 
+   		<key-many-to-one name="order_id" 
+    		class="_09_order.model.OrderVO" lazy="false"> 
+    		<column name="order_id" /> 
+  	 	</key-many-to-one> 
+  	 	<key-many-to-one name="f_id" 
+    		class="_04_facilities.model.FacilitiesVO" lazy="false"> 
+    		<column name="f_id" /> 
+  	 	</key-many-to-one> 
+    </composite-id>  
+		<property name="count">
+			<column name="COUNT" />
+		</property>
+	</class>
+</hibernate-mapping>

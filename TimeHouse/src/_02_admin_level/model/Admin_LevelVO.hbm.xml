@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016/1/20 ?U?? 03:57:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="_02_admin_level.model.Admin_LevelVO" table="ADMIN_LEVEL">
+        <id name="level_num" type="int">
+            <column name="LEVEL_NUM" />
+            <generator class="identity" />
+        </id>
+        <property name="level_name" type="java.lang.String">
+            <column name="LEVEL_NAME" />
+        </property>
+        <set name="bean" table="ADMIN" inverse="false" lazy="true">
+            <key>
+                <column name="LEVEL_NUM" />
+            </key>
+            <one-to-many class="_01_admin.model.AdminVO" />
+        </set>
+    </class>
+</hibernate-mapping>

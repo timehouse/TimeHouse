@@ -1,0 +1,539 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*========ARTICLE========*/
+
+.map_size{width:100%; height:100%;}
+
+.primary_content_wrap{
+	position:relative;
+	margin:0 auto;
+	margin-top:90px;
+	width:80%;
+	padding-bottom:150px;
+	overflow:hidden;}
+	
+.page_title{
+	position:absolute;
+	z-index:2000;
+	width:287px;
+	top:50px;
+	left:50px;
+}
+	
+.logo_fullscreen{
+	width:287px;
+	height:70px;
+	padding-bottom:5px;}
+	
+.logo_fullscreen img{
+	display:block;
+	float:left;
+	width:84px;
+	height:70px;
+	margin-right:10px;}
+	
+.panel {
+	z-index:7777;
+	position: absolute;
+	top:110px;
+	right: 0px;
+	background-color:rgba(255,255,255,0.75);
+	/*display: none;
+	background-image:url(../images/bg_panel.png);
+	background-position:left top;
+	background-repeat:repeat;*/
+	width: 430px;
+	height: auto;
+	/*padding: 20px 20px 30px 20px;
+	filter: alpha(opacity=95);
+	opacity: .95;*/}
+
+.content{
+	position: relative;
+	padding:10px 10px 10px 10px;
+	overflow:hidden;}
+	
+.route_wrap{
+	display:block;
+	z-index:2100;
+	position: absolute;
+	width:300px;
+	top:110px;
+	left:50px;
+	height: auto;
+	padding:10px;
+	background-color:rgba(255,255,255,0.75);}
+	
+.panel_route {
+	border:1px dashed #A7A7A7;}
+	
+.travel_head{
+	clear:both;
+	float:left;
+	overflow:hidden;
+	padding:0 0 0 0;}
+	
+/*h2{
+	padding-left:17px;
+	background-image:url(../images/location.png);
+	background-position:left center;
+	background-repeat:no-repeat;
+	display:block;
+	line-height:25px;
+	float:left;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#FFF;
+	font-weight:100;
+	margin-right:10px;}*/
+	
+#travel_mode{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#fff;
+	font-weight:100;}
+	
+.divider{
+	float:left;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:26px;
+	color:#333;
+	margin:0 5px;
+	font-weight:100;}
+	
+h2{
+	display:block;
+	float:left;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:26px;
+	color:#1bbc9b;
+	font-weight:100;}
+	
+.control_page{
+	clear:both;
+	overflow:hidden;
+	border-bottom:1px solid #1bbc9b;
+	padding-bottom:10px;
+	margin-bottom:10px;}
+	
+.article_page p{
+	display:block;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#555;
+	line-height:24px;
+	text-indent:14px;
+	letter-spacing:1px;
+	margin-bottom:10px;}
+	
+/*===路線規劃===*/
+
+.sel_transport{
+	overflow:hidden;
+	margin-bottom:5px;}
+
+.title_transport{
+	float:left;
+	height:26px;
+	line-height:26px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#00bbcb;
+	margin-top:5px;
+	font-weight:bold;
+	padding-right:5px;
+	padding-left:0px;
+	/*background-image:url(../images/location_icon.png);
+	background-position:left top;
+	background-repeat:no-repeat;*/}
+	
+.LocationTarget{
+	float:left;
+	padding-top:6px;
+	margin-right:5px;}
+	
+.icon_transport{
+	float:left;
+	height:24px;}
+
+.icon_transport ul{}
+
+.icon_transport li{
+	display:block;
+	float:left;
+	width:50px;
+	height:24px;
+	margin-right:5px;}
+	
+.icon_transport li.driving a{
+	display:block;
+	margin:0 auto;
+	width:50px;
+	height:24px;
+	text-indent:-9999px;
+	background-image:url(../images/mode_driving.png);
+	background-position:0px 0px;
+	background-repeat:no-repeat;}
+	
+.icon_transport li.driving a.active_mode{
+	background-position:0px -48px;}
+	
+.icon_transport li.transit a{
+	display:block;
+	margin:0 auto;
+	width:50px;
+	height:24px;
+	text-indent:-9999px;
+	background-image:url(../images/mode_transit.png);
+	background-position:0px 0px;
+	background-repeat:no-repeat;}
+	
+.icon_transport li.walking a{
+	display:block;
+	margin:0 auto;
+	width:50px;
+	height:24px;
+	text-indent:-9999px;
+	background-image:url(../images/mode_walking.png);
+	background-position:0px 0px;
+	background-repeat:no-repeat;}
+	
+.icon_transport li.bicycling a{
+	display:block;
+	margin:0 auto;
+	width:50px;
+	height:24px;
+	text-indent:-9999px;
+	background-image:url(../images/mode_bicycling.png);
+	background-position:0px 0px;
+	background-repeat:no-repeat;}
+	
+.icon_transport li a:hover{
+	background-position:0px -24px;}
+	
+/*.textfield{
+	width:200px;
+	height:24px;
+	line-height:29px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	background-image:url(../images/bg_textfield.png);
+	background-position:left bottom;
+	background-repeat: repeat-x;
+	background-color:#FFF;
+	border-radius:3px;
+	border: 1px solid #bbbbbb;}*/
+	
+.change_route{}
+
+.change_route a{
+	display:block;
+	width:35px;
+	height:35px;
+	text-indent:-9999px;
+	background-image: url(../images/route_change.png);
+	background-position:left top;
+	background-repeat:no-repeat;}
+	
+.change_route a:hover{
+	background-position:left bottom;}
+	
+#control{
+	float:left;
+	/*width:300px;*/}
+	
+#control ul{}
+
+#control ul li{
+	display:block;
+	clear:both;}
+	
+.refresh{
+	/*width:82px;*/
+	float:left;
+	margin-top:5px;
+	overflow:hidden;}
+
+.refresh a{
+	display:block;
+	float:left;
+	height:30px;
+	line-height:30px;
+	padding:0 10px;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#fff;
+	text-decoration:none;
+	text-align:center;
+	background-color:#00bbcb;
+	margin-right:0px;
+	transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	outline:none;}
+	
+.refresh a.route_map{
+	display:none;}
+
+.refresh a:hover{
+	color:#333;
+	background-color:#b8b8b8;}
+	
+.directions{
+	width:100%;
+	height:200px;
+	overflow:auto;}
+	
+.directions p{
+	text-align:center;}
+	
+#directions-panel{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:12px;
+	margin-top:-10px;
+	background-color:#fff;
+	/*background-image:url(../images/bg_panel.png);
+	background-position:left top;
+	background-repeat: repeat;*/}
+	
+.bg_select{
+	background-color:#888;
+	color:#ccc;}
+	
+.travel_block{
+	float:left;
+	margin:0 5px 5px 0;}
+	
+.travel_name{
+	clear:both;
+	overflow:hidden;
+	width:120px;
+	margin:0 auto;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color: #333;
+	text-align:center;}
+	
+.sightseeing{
+	clear:both;
+	overflow:hidden;
+	padding-top:5px;
+	padding-bottom:0px;}
+	
+.pages{
+	overflow:hidden;}
+
+.pages a{
+	height:30px;
+	display:block;
+	float:right;
+	font-size:13px;
+	color:#fff;
+	line-height:30px;
+	padding:0 10px;
+	background-color:#00bbcb;
+	margin:2px;
+	transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	outline:none;}
+
+.pages a:hover{
+	color:#333;
+	background-color:#b8b8b8;}
+	
+.InfoSource{
+	float:right;
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+	font-weight:bold;
+	padding-bottom:10px;}
+
+.InfoSource a{
+	color:#333;
+	text-decoration:none;
+	transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+	outline:none;}
+	
+.InfoSource a:hover{
+	color:#09a7b5;}
+	
+.attractions_wording{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif; 
+	font-size:12px; 
+	width:310px; 
+	height:170px; 
+	color:#333; 
+	line-height:1.7; 
+	overflow:auto;
+	}
+	
+.attractions_wording img {
+	display:block;
+	width:120px;
+	height:120px;
+	}
+	
+@media screen and (max-width: 1024px) {
+	
+.panel {
+	z-index:7777;
+	position: absolute;
+	top:50px;
+	right: 0px;
+	background-color:rgba(255,255,255,0.75);
+	/*display: none;
+	background-image:url(../images/bg_panel.png);
+	background-position:left top;
+	background-repeat:repeat;*/
+	width: 430px;
+	height: auto;
+	/*padding: 20px 20px 30px 20px;
+	filter: alpha(opacity=95);
+	opacity: .95;*/}
+	
+.route_wrap{
+	display:block;
+	z-index:2100;
+	position: absolute;
+	width:300px;
+	top:50px;
+	left:50px;
+	height: auto;
+	padding:10px;
+	background-color:rgba(255,255,255,0.75);}
+	
+	}
+	
+@media screen and (max-width: 800px) {
+.panel {
+	z-index:7777;
+	position: absolute;
+	top:50px;
+	right: 0px;
+	background-color:rgba(255,255,255,0.75);
+	/*display: none;
+	background-image:url(../images/bg_panel.png);
+	background-position:left top;
+	background-repeat:repeat;*/
+	width: 320px;
+	height: auto;
+	/*padding: 20px 20px 30px 20px;
+	filter: alpha(opacity=95);
+	opacity: .95;*/}
+	
+.route_wrap{
+	display:block;
+	z-index:2100;
+	position: absolute;
+	width:300px;
+	top:50px;
+	left:0px;
+	height: auto;
+	padding:10px;
+	background-color:rgba(255,255,255,0.75);}
+	
+.directions{
+	width:100%;
+	height:200px;
+	overflow:auto;}
+	
+.directions p{
+	text-align:center;}
+	
+/*.route_wrap{
+	display:block;
+	z-index:2100;
+	position: absolute;
+	width:300px;
+	right:0px;
+	bottom:36px;
+	height: auto;
+	padding:10px;
+	background-color:rgba(255,255,255,0.6);}	
+
+.route_wrap{
+	z-index:2100;
+	position: absolute;
+	bottom:0px;
+	right:0px;
+	height:300px;
+	border:0px solid #F00;}*/	
+	
+}
+	
+@media screen and (max-width: 640px) {
+.map_size{
+	width:100%; 
+	height:265px;
+	margin-top:36px;}
+
+.panel {
+	z-index:7777;
+	position: static;
+	top:36px;
+	right: 0px;
+	background-color:rgba(255,255,255,0.75);
+	/*display: none;
+	background-image:url(../images/bg_panel.png);
+	background-position:left top;
+	background-repeat:repeat;*/
+	width: 100%;
+	height: auto;
+	/*padding: 20px 20px 30px 20px;
+	filter: alpha(opacity=95);
+	opacity: .95;*/}
+	
+.route_wrap{
+	display:block;
+	z-index:2100;
+	position: static;
+	width:94%;
+	top:36px;
+	left:0px;
+	height: auto;
+	padding:1% 3% 5% 3%;
+	background-color:rgba(255,255,255,0.75);}
+	
+.directions{
+	width:100%;
+	height: auto;
+	min-height:22px;}
+	
+.directions p{
+	text-align:center;
+	line-height:22px;}
+	
+.refresh a.route_map{
+	display:block;
+	margin-right:5px;}
+	
+.panel_route {
+	height: auto;
+	border:1px dashed #A7A7A7;}
+	
+.attractions_wording{
+	font-family:"微軟正黑體", Arial, Helvetica, sans-serif; 
+	font-size:12px; 
+	width:190px; 
+	height:170px; 
+	color:#333; 
+	line-height:1.7; 
+	overflow:auto;
+	}
+	
+.attractions_wording img {
+	display:block;
+	width:60px;
+	height:60px;
+	}	
+	
+	}
