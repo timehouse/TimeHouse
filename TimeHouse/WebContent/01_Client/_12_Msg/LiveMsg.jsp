@@ -16,7 +16,7 @@
 	    var path = window.location.pathname;
 	    var webCtx = path.substring(0, path.indexOf('/', 1));
 	    
-		var websocket = new WebSocket("ws://"+ host + webCtx + "/chatXX")
+		var websocket = new WebSocket("ws://"+ host + webCtx + "/chat")
 		
 		websocket.onmessage = function processMessage(message){
 			var jsonData = JSON.parse(message.data);

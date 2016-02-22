@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 
@@ -16,19 +17,25 @@ import _07_message.model.MailHotelService;
 import _07_message.model.MessageDAO;
 import _07_message.model.MessageVO;
 import _07_message.model.Message_InterfaceDAO;
+import _09_order.model.OrderService;
 import hibernate.util.HibernateUtil;
 
 @WebServlet(urlPatterns = { "/client/MemberMailServlet.controller" })
 public class MemberMailServlet extends HttpServlet {
-	private MailHotelService mailHotelService;
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		mailHotelService = new MailHotelService();
+		response.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession(false);
+		String account = null;
+		if(session!=null){
+			account =(String)session.getAttribute("memberAccount");
+		}
+		MailHotelService mailHotelService = new MailHotelService();
 		//接收資料
 		MemberVO memberVO = new MemberVO();  //之後要改成從session中獲得會員帳號名
-		memberVO.setMember_account("da");
+		memberVO.setMember_account(account);
 		
 		//轉換資料
 		//驗證資料
@@ -36,8 +43,6 @@ public class MemberMailServlet extends HttpServlet {
 		MessageVO bean = new MessageVO();
 		bean.setMember_account(memberVO);
 		
-		
-		Message_InterfaceDAO dao = new MessageDAO();
 		List<MessageVO> result = mailHotelService.selectMember(bean);
 
 		

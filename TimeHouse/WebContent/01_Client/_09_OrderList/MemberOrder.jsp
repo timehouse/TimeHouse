@@ -7,34 +7,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/justified-nav.css" />
+<link rel="stylesheet" href="../css/jPages.css" />
 <title>管理訂單</title>
 <style>
-	td{
+	td,th{
 		text-align:center;
 	}
 </style>
 </head>
 <body>
+<%-- <%@ include file="../header.jsp"%> --%>
 <c:if test="${ not empty select }" />
 		<form>
 			<table border="1">
 				<thead>
 					<tr>
-						<th>訂單編號</th>
-						<th>住房者姓名</th>
-						<th>房型</th>
-						<th>入住日期</th>
-						<th>退房日期</th>
-						<th>成人人數</th>
-						<th>兒童人數</th>
-						<th>訂單金額</th>
-						<th>備註</th>
-						<th>入住情況</th>
-						<th>訂單成立日期</th>
+						<th>&nbsp;訂單編號&nbsp;</th>
+						<th>&nbsp;住房者姓名&nbsp;</th>
+						<th>&nbsp;房型&nbsp;</th>
+						<th>&nbsp;入住日期&nbsp;</th>
+						<th>&nbsp;退房日期&nbsp;</th>
+						<th>&nbsp;成人人數&nbsp;</th>
+						<th>&nbsp;兒童人數&nbsp;</th>
+						<th>&nbsp;訂單金額&nbsp;</th>
+						<th>&nbsp;備註&nbsp;</th>
+						<th>&nbsp;入住情況&nbsp;</th>
+						<th>&nbsp;訂單成立日期&nbsp;</th>
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody id="itemContainer">
 
 					<c:forEach var="num" begin="0" end="${fn:length(select)-1}">
 							<c:url value="/02_Server/_60_Order/BUpdateOrder.jsp" var="path">
@@ -57,9 +61,9 @@
 						<tr>
 							<td>${select[num].order_id }</td>
 							<td>${select[num].guest_id.guest_first_name } ${select[num].guest_id.guest_last_name}</td>
-							<td>${select[num].room_type }</td>
-							<td><fmt:formatDate value="${select[num].checkin_date }" pattern="yyyy-MM-dd" /></td>
-							<td><fmt:formatDate value="${select[num].checkout_date}" pattern="yyyy-MM-dd" /></td>
+							<td>&nbsp;${select[num].room_type }&nbsp;</td>
+							<td>&nbsp;<fmt:formatDate value="${select[num].checkin_date }" pattern="yyyy-MM-dd" />&nbsp;</td>
+							<td>&nbsp;<fmt:formatDate value="${select[num].checkout_date}" pattern="yyyy-MM-dd" />&nbsp;</td>
 							<td>${select[num].adults }</td>
 							<td>${select[num].children }</td>
 							<td>${select[num].total_payment }</td>
@@ -79,6 +83,16 @@
 				</tbody>
 
 			</table>
+			<div class="holder"></div>
 		</form>
+
+		<script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="../js/jPages.min.js"></script>
+		<script type="text/javascript">
+		$("div.holder").jPages({
+			containerID: "itemContainer"
+			});
+		</script>
+<%-- 		<%@ include file="../footer.jsp"%> --%>
 </body>
 </html>

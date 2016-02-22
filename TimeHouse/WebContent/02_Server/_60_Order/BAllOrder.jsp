@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- 為什麼這裡的href只要上一層?? -->
+<!-- 為什麼這裡的href只要上一層??因為是用controller呼叫出jsp -->
 <link rel="stylesheet" href="../css/bootstrap.min.css" />
 <link rel="stylesheet" href="../css/justified-nav.css" />
 <link rel="stylesheet" href="../css/jPages.css" />
@@ -77,21 +77,21 @@ td,th {
 		<table border="1">
 			<thead>
 				<tr>
-					<th>訂單編號</th>
-					<th>會員帳號</th>
-					<th>住房者姓名</th>
-					<th>房型</th>
-					<th>房號</th>
-					<th>入住日期</th>
-					<th>退房日期</th>
-					<th>成人人數</th>
-					<th>兒童人數</th>
-					<th>訂單金額</th>
-					<th>備註</th>
-					<th>入住情況</th>
-					<th>訂單成立日期</th>
-					<th>修改訂單</th>
-					<th>刪除訂單</th>
+					<th>&nbsp;訂單編號&nbsp;</th>
+					<th>&nbsp;會員帳號&nbsp;</th>
+					<th>&nbsp;住房者姓名&nbsp;</th>
+					<th>&nbsp;房型&nbsp;</th>
+					<th>&nbsp;房號&nbsp;</th>
+					<th>&nbsp;入住日期&nbsp;</th>
+					<th>&nbsp;退房日期&nbsp;</th>
+					<th>&nbsp;成人人數&nbsp;</th>
+					<th>&nbsp;兒童人數&nbsp;</th>
+					<th>&nbsp;訂單金額&nbsp;</th>
+					<th>&nbsp;備註&nbsp;</th>
+					<th>&nbsp;入住情況&nbsp;</th>
+					<th>&nbsp;訂單成立日期&nbsp;</th>
+					<th>&nbsp;修改訂單&nbsp;</th>
+					<th>&nbsp;刪除訂單&nbsp;</th>
 				</tr>
 			</thead>
 
@@ -132,22 +132,20 @@ td,th {
 							${select[num].guest_id.guest_last_name}</td>
 						<td>${select[num].room_type }</td>
 						<td>${select[num].room_id.room_id }</td>
-						<td><a href="#"
+						<td>&nbsp;<a href="#"
 							onclick="clickSelectCI('<fmt:formatDate value="${select[num].checkin_date }"
 								pattern="yyyy-MM-dd" />')"><fmt:formatDate value="${select[num].checkin_date }"
-								pattern="yyyy-MM-dd" /></a></td>
-<%-- 						<td><fmt:formatDate value="${select[num].checkin_date }" --%>
-<%-- 								pattern="yyyy-MM-dd" /></td> --%>
-						<td><a href="#"
+								pattern="yyyy-MM-dd" /></a>&nbsp;</td>
+						<td>&nbsp;<a href="#"
 							onclick="clickSelectCO('<fmt:formatDate value="${select[num].checkout_date }"
 								pattern="yyyy-MM-dd" />')"><fmt:formatDate value="${select[num].checkout_date }"
-								pattern="yyyy-MM-dd" /></a></td>
+								pattern="yyyy-MM-dd" /></a>&nbsp;</td>
 <%-- 						<td><fmt:formatDate value="${select[num].checkout_date}" --%>
 <%-- 								pattern="yyyy-MM-dd" /></td> --%>
 						<td>${select[num].adults }</td>
 						<td>${select[num].children }</td>
 						<td>${select[num].total_payment }</td>
-						<td>${select[num].note }</td>
+						<td>&nbsp;${select[num].note }&nbsp;</td>
 						<c:choose>
 							<c:when test="${select[num].transaction_condition eq 1}">
 								<td><button type="button" class="btn btn-default" onClick="changeOrder(${select[num].order_id })">
@@ -160,8 +158,8 @@ td,th {
 								</button></td>
 							</c:otherwise>
 						</c:choose>
-						<td><fmt:formatDate value="${select[num].book_date }"
-								pattern="yyyy-MM-dd" /></td>
+						<td>&nbsp;<fmt:formatDate value="${select[num].book_date }"
+								pattern="yyyy-MM-dd" />&nbsp;</td>
 						<td><button type="button" class="btn btn-default" onClick="window.location.href ='${path}'">
 							<span class="glyphicon glyphicon-pencil"></span>
 							</button></td>
