@@ -1,10 +1,12 @@
 package _13_roomtype.model;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import _12_roompic.model.RoomPicVO;
 import hibernate.util.HibernateUtil;
 
 public class RoomTypeDAO implements RoomTypeDAO_interface {
@@ -61,6 +63,11 @@ public class RoomTypeDAO implements RoomTypeDAO_interface {
 		list = query.list();
 		session.clear();
 		return list;
+	}
+	@Override
+	public Set<RoomPicVO> getRoomPicsByRoomTypeid(Integer roomType_id) {		
+		Set<RoomPicVO>	set = findByPrimaryKey(roomType_id).getRoomPics();
+		return set;
 	}
 
 }

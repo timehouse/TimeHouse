@@ -1,10 +1,13 @@
-package _58_roomSche.controller;
+package _58_roomSche.model;
 
 import java.util.List;
+
+import org.hibernate.Session;
 
 import _11_room.model.RoomDAO;
 import _11_room.model.RoomDAO_interface;
 import _11_room.model.RoomVO;
+import hibernate.util.HibernateUtil;
 
 public class RroomScheService {
  
@@ -20,14 +23,11 @@ public class RroomScheService {
     }
     
     public void updateOneRoomStatus(Integer id, boolean rStatus,String rContext) {
-	RoomVO rVo =roomDAO.findByPrimaryKey(id);
+	//必定有id
+    RoomVO rVo =roomDAO.findByPrimaryKey(id);
 	rVo.setrStatus(rStatus);
 	rVo.setrContext(rContext);
 	roomDAO.update(rVo);
     }
-
-    public void printJsonRooms(){
-	
-    }
-    
+   
 }

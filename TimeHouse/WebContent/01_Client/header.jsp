@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link href="css/index.css" rel="stylesheet" />
+<link href="/TimeHouse/01_Client/css/index.css" rel="stylesheet" />
+<link rel="SHORTCUT ICON" href="favicon.ico">
 </head>
 <body>
 <!--HEADER START-->
@@ -14,7 +15,7 @@
 			<!--左上角logo-->
 			<div class="header">
 				<div class="logo_page">
-					<a href="index.html"><img src="images/logo_page.png" />
+					<a href="index.jsp"><img src="images/logo_page.png" />
 						<h1>時光小屋</h1></a>
 				</div>
 				<div class="fat-nav">
@@ -44,8 +45,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+
 	<!--HEADER END-->
 </body>
 </html>

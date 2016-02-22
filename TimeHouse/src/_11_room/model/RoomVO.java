@@ -15,31 +15,32 @@ import hibernate.util.HibernateUtil;
  */
 public class RoomVO implements java.io.Serializable {
 
-    private Integer room_id;
     private RoomTypeVO roomType;
+    private Set<OrderVO> orders = new HashSet<OrderVO>(0);
+    private Integer room_id;
     private boolean rStatus;
     private String room_type;
     private String rContext;
-    private Set<OrderVO> orders = new HashSet<OrderVO>(0);
 
-    public static void main(String[] args) {
-
-	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-	session.beginTransaction();
-
-	RoomVO packageBean = (RoomVO) session.get(RoomVO.class, 101);
-	System.out.println(packageBean);
-
-	session.getTransaction().commit();
-
-    }
+    // public static void main(String[] args) {
+    //
+    // Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    // session.beginTransaction();
+    //
+    // RoomVO packageBean = (RoomVO) session.get(RoomVO.class, 101);
+    // System.out.println(packageBean);
+    //
+    // session.getTransaction().commit();
+    //
+    // }
 
     @Override
     public String toString() {
-//	return "{room_id:" + room_id + ",roomType:" + roomType.getRoomType_id() + ",rStatus:" + rStatus + ",room_type:"
-//		+ room_type + ",rContext:" + rContext + "}";
+	// return "{room_id:" + room_id + ",roomType:" +
+	// roomType.getRoomType_id() + ",rStatus:" + rStatus + ",room_type:"
+	// + room_type + ",rContext:" + rContext + "}";
 	return "{room_id:" + room_id + ",roomType:" + roomType.getRoomType_id() + ",rStatus:" + rStatus + ",room_type:"
-	+ room_type + ",rContext:" + rContext + "}";
+		+ room_type + ",rContext:" + rContext + "}";
     }
 
     public Integer getRoom_id() {

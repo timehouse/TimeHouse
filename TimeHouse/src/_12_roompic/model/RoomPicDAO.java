@@ -8,7 +8,8 @@ import org.hibernate.Session;
 import hibernate.util.HibernateUtil;
 
 public class RoomPicDAO implements RoomPicDAO_interface {
-	private String GET_ALL_STMT="from RoomPicVO order by roomPic_id";
+	private final String GET_ALL_STMT="from RoomPicVO order by roomPic_id";
+	
 	public Session getSession(){
 		return HibernateUtil.getSessionFactory().getCurrentSession();
 	}
@@ -51,5 +52,4 @@ public class RoomPicDAO implements RoomPicDAO_interface {
 		list = query.list();
 		return list;
 	}
-
 }

@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link href="css/index.css" rel="stylesheet" />
+<link href="/TimeHouse/01_Client/css/index.css" rel="stylesheet" />
 </head>
 <body>
 <!--FOOTER START-->
+		</div>
+	</div>
 	<div class="footer">
 		<div class="FooterNav">
 			<div class="FooterLogo">
