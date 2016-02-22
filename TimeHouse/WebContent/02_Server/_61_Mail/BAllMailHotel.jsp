@@ -13,8 +13,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>聯絡訊息</title>
 <style>
-	td,th{
+	table {
+ 		border:solid;
+	}
+	td,th {
 		text-align:center;
+		border-bottom-style:solid;
+		border-bottom-width:1px;
+	}
+	td {
+		height:40px;
+	}
+	.btn-success {
+		background-color: #DDDDDD;
+		border-color: #DDDDDD;
 	}
 </style>
 <!-- 登入成功才可導向此頁面 -->
@@ -29,7 +41,7 @@
 			<button type="button"  class="btn btn-default" onClick="selectAll()">
 			       	<span class="glyphicon glyphicon-refresh"></span>全部訂單
 			</button>
-			<table border="1">
+			<table>
 				<thead>
 					<tr>
 						<th>&nbsp;訊息編號&nbsp;</th>
@@ -77,9 +89,9 @@
 								<td><a href="#"
 							onclick="clickSelectMb('${select[num].member_account.member_account }')">${select[num].member_account.member_account }</a></td>
 							</c:if>
-							<td>${select[num].name }</td>
-							<td>${select[num].email }</td>
-							<td>${select[num].message_content }</td>
+							<td>&nbsp;${select[num].name }&nbsp;</td>
+							<td>&nbsp;${select[num].email }&nbsp;</td>
+							<td>&nbsp;${select[num].message_content }&nbsp;</td>
 							<td>&nbsp;<fmt:formatDate value="${select[num].message_date }" pattern="yyyy-MM-dd HH:mm:ss" />&nbsp;</td>
 							<c:if test="${not empty select[num].reply }">
 								<td>${select[num].reply }</td>
@@ -89,7 +101,7 @@
 							<c:if test="${ empty select[num].reply }">
 								<td>尚未回應</td>
 								<td>尚未回應</td>
-								<td><button type="button" class="btn btn-success" onClick="window.location.href ='${path}'">
+								<td><button type="button" class="btn btn-default" onClick="window.location.href ='${path}'">
 									<span class="glyphicon glyphicon-pencil"></span>回應　
 								</button></td>
 							</c:if>
@@ -97,14 +109,14 @@
 								<c:when test="${ not empty select[num].member_account.member_account }">
 									<c:choose>
 										<c:when test="${ select[num].member_account.limit eq 0}">
-											<td><button type="button" class="btn btn-success" onClick="limitMember('${select[num].member_account.member_account}')">
+											<td>&nbsp;<button type="button" class="btn btn-default" onClick="limitMember('${select[num].member_account.member_account}')">
 												<span class="glyphicon glyphicon-thumbs-down"></span>　黑名單　
-											</button></td>
+											</button>&nbsp;</td>
 										</c:when>
 										<c:otherwise>
-											<td><button type="button" class="btn btn-success" onClick="limitMember('${select[num].member_account.member_account}')">
+											<td>&nbsp;<button type="button" class="btn btn-default" onClick="limitMember('${select[num].member_account.member_account}')">
 												<span class="glyphicon glyphicon-thumbs-up"></span>取消黑名單
-											</button></td>
+											</button>&nbsp;</td>
 										</c:otherwise>
 									</c:choose>
 								</c:when>
@@ -133,7 +145,6 @@
 		document.forms[0].action="<c:url value='/server/BTypeMailServlet.controller?type=" + type +"' />" ;
 		document.forms[0].method="POST";
 		document.forms[0].submit();
-		
 	}
 	function limitMember(mb){
 		if (confirm("確定修改此會員狀況? ") ) {

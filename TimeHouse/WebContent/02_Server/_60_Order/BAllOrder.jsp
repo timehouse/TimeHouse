@@ -15,35 +15,36 @@
 
 <style>
 
-td,th {
-	text-align: center;
-}
-/* 分頁的style */
-.pagination {
-            font-size: 80%;
-}
-.pagination a {
-    text-decoration: none;
- border: solid 1px #AAE;
- color: #15B;
-}
-.pagination a, .pagination span {
-    display: block;
-    float: left;
-    padding: 0.3em 0.5em;
-    margin-right: 5px;
- margin-bottom: 5px;
-}
-.pagination .current {
-    background: #26B;
-    color: #fff;
- border: solid 1px #AAE;
-}
-.pagination .current.prev, .pagination .current.next{
- color:#999;
- border-color:#999;
- background:#fff;
-}
+	td,th {
+		text-align: center;
+	}
+	/* 分頁的style */
+	.pagination {
+	            font-size: 80%;
+	}
+	.pagination a {
+	    text-decoration: none;
+	 border: solid 1px #AAE;
+	 color: #15B;
+	}
+	.pagination a, .pagination span {
+	    display: block;
+	    float: left;
+	    padding: 0.3em 0.5em;
+	    margin-right: 5px;
+	 margin-bottom: 5px;
+	}
+	.pagination .current {
+	    background: #26B;
+	    color: #fff;
+	 border: solid 1px #AAE;
+	}
+	.pagination .current.prev, .pagination .current.next{
+	 color:#999;
+	 border-color:#999;
+	 background:#fff;
+	}
+
 </style>
 <!-- 登入成功才可導向此頁面 -->
 <%-- 	<c:if test="${empty LoginOK}"> --%>
