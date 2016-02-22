@@ -19,12 +19,11 @@ import hibernate.util.HibernateUtil;
 
 @WebServlet(urlPatterns = { "/server/BAllOrderServlet.controller" })
 public class BAllOrderServlet extends HttpServlet {
-	private OrderService orderService;
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		orderService = new OrderService();
+		OrderService orderService = new OrderService();
 		//一點進去即看到全部列表，所以無接收、驗證、轉換
 		//呼叫model
 		OrderVO bean = null;

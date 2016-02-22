@@ -2,28 +2,38 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/justified-nav.css" />
+<link rel="stylesheet" href="../css/jPages.css" />
 <title>聯絡訊息</title>
+<style>
+	td,th{
+		text-align:center;
+	}
+</style>
 </head>
 <body>
+<%-- <%@ include file="../header.jsp"%> --%>
 		<c:if test="${ not empty select }" />
 		<form>
 			<table border="1">
 				<thead>
 					<tr>
-						<th>分類</th>
-						<th>訊息內容</th>
-						<th>訊息成立日期</th>
-						<th>管理員回應</th>
-						<th>回應日期</th>
+						<th>&nbsp;分類&nbsp;</th>
+						<th>&nbsp;訊息內容&nbsp;</th>
+						<th>&nbsp;訊息成立時間&nbsp;</th>
+						<th>&nbsp;管理員回應&nbsp;</th>
+						<th>&nbsp;回應日期&nbsp;</th>
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody id="itemContainer">
 
 					<c:forEach var="num" begin="0" end="${fn:length(select)-1}">
 <%-- 					<c:url value="/02_Server/_61_Mail/ReplyMail.jsp" var="path"> --%>
@@ -37,12 +47,13 @@
 <%-- 						<c:param name="message_date" value="${select[num].message_date }" /> --%>
 <%-- 					</c:url> --%>
 					<tr>
-							<td>${select[num].type}</td>
-							<td>${select[num].message_content }</td>
-							<td>${select[num].message_date }</td>
+							<td>&nbsp;${select[num].type}&nbsp;</td>
+							<td>&nbsp;${select[num].message_content }&nbsp;</td>
+							<td>&nbsp;<fmt:formatDate value="${select[num].message_date }" pattern="yyyy-MM-dd HH:mm:ss" />&nbsp;</td>
 							<c:if test="${not empty select[num].reply }">
 								<td>${select[num].reply }</td>
-								<td>${select[num].reply_date }</td>
+								<td>&nbsp;<fmt:formatDate value="${select[num].reply_date }" pattern="yyyy-MM-dd HH:mm:ss" />&nbsp;</td>
+<%-- 								<td>${select[num].reply_date }</td> --%>
 							</c:if>
 							<c:if test="${ empty select[num].reply }">
 								<td>尚未回應</td>
@@ -54,7 +65,16 @@
 				</tbody>
 
 			</table>
+			<div class="holder"></div>
 		</form>
+		<script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="../js/jPages.min.js"></script>
+		<script type="text/javascript">
+		$("div.holder").jPages({
+			containerID: "itemContainer"
+			});
+		</script>
+<%-- 		<%@ include file="../footer.jsp"%> --%>
 
 </body>
 </html>

@@ -22,12 +22,11 @@ import _09_order.model.OrderVO;
 
 @WebServlet(urlPatterns = { "/server/BAllCalendarServlet.controller" })
 public class BAllCalendarServlet extends HttpServlet {
-	private OrderService orderService;
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		orderService = new OrderService();
+		OrderService orderService = new OrderService();
 		PrintWriter out = response.getWriter();
 		//之後要根據DEMO資料改
 		String a = "Single";

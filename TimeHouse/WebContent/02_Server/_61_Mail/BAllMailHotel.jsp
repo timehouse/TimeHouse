@@ -32,7 +32,7 @@
 			<table border="1">
 				<thead>
 					<tr>
-						<th>訊息編號</th>
+						<th>&nbsp;訊息編號&nbsp;</th>
 						<th> <select name="type" id="type" onChange="typeSelect()">
 						<option value="全部類型" selected="selected">全部類型</option>
 						<option value="餐飲服務">餐飲服務</option>
@@ -42,15 +42,15 @@
 						<option value="行銷合作/公關媒體">行銷合作/公關媒體</option>
 						<option value="其他">其他</option>
 						</select></th>
-						<th>會員帳號</th>
-						<th>聯絡者姓名</th>
-						<th>聯絡信箱</th>
-						<th>訊息內容</th>
-						<th>訊息成立日期</th>
-						<th>管理員回應</th>
-						<th>回應日期</th>
-						<th>回應</th>
-						<th>黑名單</th>
+						<th>&nbsp;會員帳號&nbsp;</th>
+						<th>&nbsp;聯絡者姓名&nbsp;</th>
+						<th>&nbsp;聯絡信箱&nbsp;</th>
+						<th>&nbsp;訊息內容&nbsp;</th>
+						<th>&nbsp;訊息成立日期&nbsp;</th>
+						<th>&nbsp;管理員回應&nbsp;</th>
+						<th>&nbsp;回應日期&nbsp;</th>
+						<th>&nbsp;回應&nbsp;</th>
+						<th>&nbsp;黑名單&nbsp;</th>
 					</tr>
 				</thead>
 
@@ -80,10 +80,10 @@
 							<td>${select[num].name }</td>
 							<td>${select[num].email }</td>
 							<td>${select[num].message_content }</td>
-							<td>${select[num].message_date }</td>
+							<td>&nbsp;<fmt:formatDate value="${select[num].message_date }" pattern="yyyy-MM-dd HH:mm:ss" />&nbsp;</td>
 							<c:if test="${not empty select[num].reply }">
 								<td>${select[num].reply }</td>
-								<td><fmt:formatDate value="${select[num].reply_date }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+								<td>&nbsp;<fmt:formatDate value="${select[num].reply_date }" pattern="yyyy-MM-dd HH:mm:ss" />&nbsp;</td>
 								<td></td>
 							</c:if>
 							<c:if test="${ empty select[num].reply }">
@@ -100,13 +100,11 @@
 											<td><button type="button" class="btn btn-success" onClick="limitMember('${select[num].member_account.member_account}')">
 												<span class="glyphicon glyphicon-thumbs-down"></span>　黑名單　
 											</button></td>
-<%-- 											<td><input type="button" value="黑名單" onClick="limitMember('${select[num].member_account.member_account}')"></td> --%>
 										</c:when>
 										<c:otherwise>
 											<td><button type="button" class="btn btn-success" onClick="limitMember('${select[num].member_account.member_account}')">
 												<span class="glyphicon glyphicon-thumbs-up"></span>取消黑名單
 											</button></td>
-<%-- 											<td><input type="button" value="取消黑名單" onClick="limitMember('${select[num].member_account.member_account}')"></td> --%>
 										</c:otherwise>
 									</c:choose>
 								</c:when>

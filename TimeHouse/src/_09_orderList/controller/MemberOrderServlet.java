@@ -3,11 +3,13 @@ package _09_orderList.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 
@@ -22,17 +24,22 @@ import hibernate.util.HibernateUtil;
 
 @WebServlet(urlPatterns = { "/client/MemberOrderServlet.controller" })
 public class MemberOrderServlet extends HttpServlet {
-	private OrderService orderService;
+//	private OrderService orderService;
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		orderService = new OrderService();
-
+		response.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession(false);
+		String account = null;
+		if(session!=null){
+			account =(String)session.getAttribute("memberAccount");
+		}
+		OrderService orderService = new OrderService();
+			
 		// 接收資料
-		MemberVO memberVO = new MemberVO(); // 之後要改成從session中獲得會員帳號名
-		memberVO.setMember_account("da");
+		MemberVO memberVO = new MemberVO();
+		memberVO.setMember_account(account);
 
 		// 轉換資料
 		// 驗證資料

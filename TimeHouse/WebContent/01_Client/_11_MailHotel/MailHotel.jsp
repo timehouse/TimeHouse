@@ -22,7 +22,7 @@
 				聯絡我們<em>Contact Us</em>
 			</h2>
 		</div>
-		程式還沒寫，當寫訊息者為會員時，順便insert入會員帳號名
+		會員登入時，會自動帶入資料
 		<div>
 			<form method="post" name="mail_form" action="<c:url value="/client/mailHotelServlet.controller"/>"
 				id="mail_form">
@@ -37,24 +37,37 @@
 						<option value="其他">其他</option>
 					</select><span>${error.type}</span>
 				</div>
+				<c:if test="${empty LoginOK }">
 				<div>
 					<label><em>*</em>姓名</label> <input type="text" id="name"
 						name="name" value="${param.name}"><span>${error.name}</span>
 				</div>
-				這裡有個隱藏會員帳號欄位還沒寫，要等login servlet，從裡面抓取(?)
-				<div>
+				<div> 
 					<input type="hidden" id="member" name="member" value="none" >
 				</div>
 				<div>
 					<label><em>*</em>聯絡信箱</label> <input type="text" id="email"
 						name="email" value="${param.email}"><span>${error.email}</span>
 				</div>
+				</c:if>
+				
+<!-- 				當會員登入時 -->
+				<c:if test="${not empty LoginOK }">
+				<div>
+					<label><em>*</em>姓名</label> <input type="text" id="name"
+						name="name" value="${firstName} ${lastName}"><span>${error.name}</span>
+				</div>
+					<input type="hidden" id="member" name="member" value="${account }" >
+				<div>
+					<label><em>*</em>聯絡信箱</label> <input type="text" id="email"
+						name="email" value="${email}"><span>${error.email}</span>
+				</div>
+				</c:if>
 				<div>
 					<label><em>*</em>需求說明</label>
 					<textarea id="content" name="content" >${param.content}</textarea>
 					<span>${error.content}</span>
 				</div>
-				<div>
 					<div>
 						<button type="submit" id="submit" class="btn btn-default" >
         					<span class="glyphicon glyphicon-envelope"></span>　送出
@@ -64,7 +77,6 @@
 						</button>
 						<input type="button" name="insert" value="一鍵輸入" onClick="insertFalseInfo()">
 					</div>
-				</div>
 			</form>
 		</div>
 	</div>
@@ -72,9 +84,9 @@
 	
 	<script>
 	function insertFalseInfo() {
-		document.getElementById("type").options[3].selected= true;
-		document.getElementById("name").value= "賈伯斯";
-		document.getElementById("email").value= "zzz@gmail.com";
+		document.getElementById("type").options[6].selected= true;
+// 		document.getElementById("name").value= "賈伯斯";
+// 		document.getElementById("email").value= "zzz@gmail.com";
 		document.getElementById("content").value= "白癡";
 		
 	}

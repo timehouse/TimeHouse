@@ -50,7 +50,7 @@ public class OrderDAO implements Order_InterfaceDAO {
 			getSession().delete(orderVO);		
 	}
 
-	private static final String GET_ALL_STMT= "from OrderVO order by order_id ";
+	private static final String GET_ALL_STMT= "from OrderVO order by order_id desc";
 	
 	@Override
 	public List<OrderVO> selectAll() {

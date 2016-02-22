@@ -50,7 +50,7 @@ public class MessageDAO implements Message_InterfaceDAO {
 			getSession().delete(messageVO);		
 	}
 
-	private static final String GET_ALL_STMT= "from MessageVO order by message_id";
+	private static final String GET_ALL_STMT= "from MessageVO order by message_id desc";
 	
 	@Override
 	public List<MessageVO> selectAll() {
@@ -60,7 +60,7 @@ public class MessageDAO implements Message_InterfaceDAO {
 		return list;
 	}
 	
-	private static final String GET_MEMBER_STMT= "from MessageVO where member_account =? order by message_id ";
+	private static final String GET_MEMBER_STMT= "from MessageVO where member_account =? order by message_id desc";
 	//查詢特定會員資訊，方法二
 	@Override
 	public List<MessageVO> selectByMember(MemberVO member_account) {
