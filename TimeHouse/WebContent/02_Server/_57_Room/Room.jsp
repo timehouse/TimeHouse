@@ -32,7 +32,7 @@
 			</tr>
 		</thead>
 		<tbody id="tb">
-
+		
 		</tbody>
 	</table>
 	
@@ -184,6 +184,7 @@
 		function room_type() {
 			var id = $(this).parents("tr").attr("id");
 			rooms.get(id)[1] = $(this).children("option:selected").text();
+			console.log(this);
 			rooms.get(id)[3] = this.value;
 			//console.log($(this).val());
 			console.log(rooms.get(id)[1]);
@@ -211,6 +212,7 @@
 				document.getElementById("imgLoad").style.display = "none";
 			});
 		}
+		
 		function delOne() {
 			var id = $(this).parents("tr").attr("id");
 			var x = {};

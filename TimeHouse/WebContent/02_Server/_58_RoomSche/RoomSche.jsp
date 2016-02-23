@@ -14,11 +14,11 @@
 </head>
 <body>
 	<form name="myForm" id="myForm"
-		action="<c:url value="/roomSche/roomScheServlet"/>" method="post">
+		action="<c:url value="/02_Server/_58_RoomSche/roomScheServlet"/>" method="post">
 		<input type="text" placeholder="roomId" name="roomId"> 
-		<input
-			type="submit" name="action" id='b1' value="listroom" />
-			<input type="button" value="AllSubmit" id="AllSubmit" name="AllSubmit" />
+		${errors.roomId} <br>
+		<input type="submit" name="action" id='b1' value="listroom" />
+		<input type="button" value="AllSubmit" id="AllSubmit" name="AllSubmit" />
 	</form>
 	<table class="table table-border">
 		<thead>
@@ -34,9 +34,8 @@
 		<tbody id="tb">
 
 		</tbody>
-		
 	</table>
-	<img id="imgLoad" src="<c:url value="/images/ajax-loader.gif"/>"
+	<img id="imgLoad" src="<c:url value="/img/global/ajax-loader.gif"/>"
 		style="display: none;">
 
 	<script type="text/javascript">
@@ -87,8 +86,11 @@
 					x.rStatus=rooms.get(id)[0];
 					x.rContext=rooms.get(id)[2];
 					document.getElementById("imgLoad").style.display="inline";
-					$.post('<c:url value="/roomSche/roomScheServlet"/>',x, function(data) {
+					$.post('<c:url value="/02_Server/_58_RoomSche/roomScheServlet"/>',x, function(data) {
+						alert(data);
 						document.getElementById("imgLoad").style.display="none";
+					}).fail(function(data){
+						alert(data);
 					});
 				});
 				//全部送出
@@ -103,9 +105,10 @@
 						i++;
 					});
 					x.number=i;
-					$.post('<c:url value="/roomSche/roomScheServlet"/>',
+					$.post('<c:url value="/02_Server/_58_RoomSche/roomScheServlet"/>',
 							x, 
 							function(data) {
+						alert(data);
 						document.getElementById("imgLoad").style.display="none";
 					});
 				});
