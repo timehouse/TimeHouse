@@ -1,14 +1,14 @@
-body {
-/*   background: #3cb464; */
-}
+/* body { */
+/* /*   background: #3cb464; */ */
+/* } */
 
 .container {
   position: absolute;
-  width: 500px;
-  height: 300px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/*   width: 500px; */
+/*   height: 300px; */
+/*   top: 50%; */
+/*   left: 50%; */
+/*   transform: translate(-50%, -50%); */
 }
 .container div, .container span {
   position: absolute;

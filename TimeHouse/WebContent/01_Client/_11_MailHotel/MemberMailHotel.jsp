@@ -13,13 +13,38 @@
 <link rel="stylesheet" href="../css/jPages.css" />
 <title>聯絡訊息</title>
 <style>
-	td,th{
+	td{
+		font-size:16px;
+		padding:5px 10px;
+	}
+	th{
+		padding:5px 10px;
+		text-align:center;
+		background-color:rgba(0,204,102, 0.6);
+		font-size:18px;
+	}
+	.hovertr:hover {
+		background-color:#BBFFEE;
+		cursor: crosshair;
+	}
+	form {
 		text-align:center;
 	}
+	table{
+		margin:30px auto;
+	}
+		.itemContainer{
+		font-size:16px;
+	}
+	
 </style>
 </head>
 <body>
-<%-- <%@ include file="../header.jsp"%> --%>
+	<%@ include file="../header.jsp"%>
+		<div style="height:110px"></div>
+		<div style="text-align:center">
+			<h1>歷史聯絡訊息</h1>
+		</div>
 		<c:if test="${ not empty select }" />
 		<form>
 			<table border="1">
@@ -46,7 +71,7 @@
 <%-- 						<c:param name="content" value="${select[num].message_content }" /> --%>
 <%-- 						<c:param name="message_date" value="${select[num].message_date }" /> --%>
 <%-- 					</c:url> --%>
-					<tr>
+					<tr class="hovertr">
 							<td>&nbsp;${select[num].type}&nbsp;</td>
 							<td>&nbsp;${select[num].message_content }&nbsp;</td>
 							<td>&nbsp;<fmt:formatDate value="${select[num].message_date }" pattern="yyyy-MM-dd HH:mm:ss" />&nbsp;</td>
@@ -74,7 +99,7 @@
 			containerID: "itemContainer"
 			});
 		</script>
-<%-- 		<%@ include file="../footer.jsp"%> --%>
+	<%@ include file="../footer.jsp"%>
 
 </body>
 </html>

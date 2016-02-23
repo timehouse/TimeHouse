@@ -12,7 +12,7 @@
     <!-- 禁止橫向滾動 -->
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>記憶大考驗</title>
+    <title>記憶翻牌大考驗</title>
     <style>
     	#music {
     		display: inline;
@@ -21,26 +21,55 @@
     		margin-left: 20px;
     		position: absolute;
     	}
-    	.demo {
+    	#timediv {
+    		position: absolute;
+    		top: 150px;
+    		right: 200px;
+    		font-size: 30px;
+    	}
+    	#Start {
+    		position: absolute;
     		clear: left;
     		margin: auto;
-    		margin-top: 40px;
-    		margin-left: 100px;
-    		position: absolute;
+    		top: 250px;
+    		right: 250px;
+			font-size: 20px;
     	}
     	span {
     		font-family: Microsoft JhengHei;
+    	}
+    	.scene {
+    		margin-top:20px;
+    		width: 1300px;
+    	}
+    	#music {
+    		position: absolute;
+    		top: 300px;
+    		right: 250px;
+    	}
+    	#cheat {
+    		position: absolute;
+    		top: 400px;
+    		right: 250px;
+    	}
+    	#loose {
+    		position: absolute;
+    		top: 450px;
+    		right: 250px;
     	}
 
     </style>
     
 </head>
 <body onload="reciprocal()">
-	<span id="time"></span>秒後遊戲結束
-<!-- 未來試著改成時間限制 -->
+	<%@ include file="../header.jsp"%>
+	<div style="height:110px"></div>
+	<div id="timediv">
+		<span id="time"></span>秒後遊戲結束
+	</div>
 <!-- 得獎畫面，是假的QRcode，以後可以試著用 真的+隨機 獎勵-->
     <div class="turning2" id="win">
-        <span>恭喜獲得本飯店按摩優惠券一張</span><img src="../../img/memoryGame/fake.png">
+        <span>　　　　　　　恭喜獲得本飯店精油SPA優惠券一張</span><img src="../../img/memoryGame/fake.png">
     </div>
 <!-- 顯示圖片的地方 -->
     <div class="scene turning1" id="scene">
@@ -178,7 +207,7 @@
             location.reload();
         }
     </script>
-
+	<%@ include file="../footer.jsp"%>
 </body>
 
 </html>
