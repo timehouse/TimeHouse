@@ -7,14 +7,31 @@
 <link rel="stylesheet" href="../../css/game.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Game Over</title>
+<style>
+	.imgdiv {
+		text-align:center;
+	}
+	.demo {
+		width: 150px;
+		height: 80px;
+		font-size: 30px;
+		font-family: 微軟正黑體;
+		margin-top:20px;
+	}
+
+</style>
 </head>
 <body>
+	<%@ include file="../header.jsp"%>
 	<audio id="audio" class="Bgmusic"  autoplay="autoplay" loop="loop" >
         <source src="../../music/laugh.mp3" type="audio/mp3"/>
     </audio>
-
-	<img src="../../img/memoryGame/defeat.png">
-	<button type="button" id="Again" class="demo" >重新開始</button>
+    <div style="height:110px"></div>
+	<div class="imgdiv">
+		<button type="button" id="Again" class="demo" >重新開始</button>
+		</br>
+		<img src="../../img/memoryGame/defeat.png">
+	</div>
 	
 	<script>
 	var $ = function (obj) { return document.getElementById(obj); }
@@ -25,5 +42,6 @@
         window.location.href="<c:url value="/01_Client/_23_Game/Memory.jsp"/>";
  }
 	</script>
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>

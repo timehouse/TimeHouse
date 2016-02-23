@@ -6,8 +6,8 @@
 <head>
 <link rel="stylesheet" href="../../css/bootstrap.min.css" />
 <link rel="stylesheet" href="../../css/justified-nav.css" />
-<link rel="stylesheet" href="../../css/fullcalendar.min.css" />
-<link rel="stylesheet" href="../../css/fullcalendar.print.css" media='print'/>
+<link rel="stylesheet" href="../../css/ordercalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="../../css/ordercalendar/fullcalendar.print.css" media='print'/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
 

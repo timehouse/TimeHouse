@@ -9,11 +9,11 @@
 	<link rel="stylesheet" href="../../css/bounceMonster/default.css" />
 	<link rel="stylesheet" href="../../css/bounceMonster/styles.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>開始遊戲</title>
+<title>記憶翻牌大考驗</title>
 <style type="text/css">
 	.start {
-		width: 200px;
-		height: 100px;
+		width: 300px;
+		height: 150px;
 		font-size: 40px;
 		font-family: 微軟正黑體;
 		margin: auto;
@@ -41,20 +41,31 @@
         -moz-animation-duration: 3s;
         -moz-animation-iteration-count: infinite;
 	}
-	.container {
-		margin-top: 10px;
-	}
-	.explan {
+ 	.container {
+ 	} 
+	.explain {
 		margin: auto;
 		margin-top: 20px;
 		text-align: center;
+		font-size: 20px;
 	}
+	.gametitle{
+		margin-top: 50px;
+		text-align: center;
+		font-size: 38px;
+	}
+	
 </style>
 </head>
 <body>
+	<%@ include file="../header.jsp"%>
+	<div style="height:110px"></div>
+	<div class="gametitle">
+		<span>記憶翻牌大考驗</span>
+	</div>
 	<button type="button" id="Start" class="start" >開始遊戲</button>
-	<div class="explan">
-		<h5>完成遊戲，即可獲得飯店設施優惠券</h5>
+	<div class="explain">
+		<p>限時30秒，完成遊戲，即可獲得飯店設施優惠券</p>
 	</div>
 	<div class="container">
 		  <div class="item" id="pink">
@@ -91,27 +102,20 @@
 		  </div>
 		</div>
 		
-		
-		
+	
 	<script type="text/javascript" src="../../js/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript">
 		var $ = function (obj) { return document.getElementById(obj); }
-// 		function start(){
-// 			location.href="";
-			
-// 		}
 		$("Start").onclick = function () {
- 			
 			var port = window.location.port;
 			var hostname = window.location.hostname;
 			var host = window.location.host;
 			var pathname = window.location.pathname;
 			var hostname = window.location.hostname;
             window.location.href="<c:url value="/01_Client/_23_Game/Memory.jsp"/>";
-//          onresize();
-// 			alert(pathname);
      }
-
+	
 	</script>
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>
