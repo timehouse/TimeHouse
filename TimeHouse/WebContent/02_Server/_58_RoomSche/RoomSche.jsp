@@ -45,7 +45,7 @@
 		var rooms = new Map();
 		var roomsBackup = new Map();
 		<c:forEach var="room" items="${rooms}" >
-		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.room_type}", "${room.rContext}" ]);
+		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.room_type}", "${room.rContext}"] );
 		</c:forEach>
 		</c:if>
 		console.log(rooms.get("101"));

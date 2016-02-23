@@ -35,8 +35,8 @@
 
 		</tbody>
 	</table>
-	<div id="dtest"></div>
-	<img id="imgLoad" src="<c:url value="/images/ajax-loader.gif"/>"
+	
+	<img id="imgLoad" src="<c:url value="/img/ajax-loader.gif"/>"
 		style="display: none;">
 
 	<script type="text/javascript">
@@ -45,7 +45,7 @@
 		var rooms = new Map();
 		var roomsBackup = new Map();
 		<c:forEach var="room" items="${rooms}" >
-		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.room_type}", "${room.rContext}" ]);
+		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.roomType.room_type}".trim(), "${room.rContext}", "${room.roomType.roomType_id}"]);
 		</c:forEach>
 		</c:if>
 		//		console.log(rooms.get("101"));
@@ -54,7 +54,7 @@
 		<c:if test="${not empty roomTypeMap}">
 		var roomType = new Map();
 		<c:forEach var="roomType" items="${roomTypeMap}" >
-		roomType.set("${roomType.key}", "${roomType.value}");
+		roomType.set("${roomType.key}", "${roomType.value}".trim());
 		</c:forEach>
 		</c:if>
 
@@ -154,8 +154,6 @@
 			var text5 = $("<input type='text' name='rContext'/>").val(value[2]);
 			var cell5 = $("<td></td").append(text5);
 
-			var cell6 = $("<td></td").html('<a href="#" class="btn btn-danger reset" >del</a>');
-
 			var cell6 = $("<td></td").html('<a href="#" class="btn btn-danger" name="res">reset</a>');
 			var cell7 = $("<td></td").html('<a href="#" class="btn btn-danger" name="delOne">delete</a>');
 			var cell8 = $("<td></td").html('<a href="#" class="btn btn-danger" name="subOne">submit</a>');
@@ -186,6 +184,7 @@
 		function room_type() {
 			var id = $(this).parents("tr").attr("id");
 			rooms.get(id)[1] = $(this).children("option:selected").text();
+			rooms.get(id)[3] = this.value;
 			//console.log($(this).val());
 			console.log(rooms.get(id)[1]);
 		}
@@ -199,9 +198,12 @@
 			var x = {};
 			x.action = this.name;
 			x.id = id;
+//			rooms.set("${room.room_id}", 
+// 			[ "${room.rStatus}", "${room.roomType.room_type}".trim(), "${room.rContext}"]);
 			x.rStatus = rooms.get(id)[0];
 			x.room_type = rooms.get(id)[1];
 			x.rContext = rooms.get(id)[2];
+			x.rTid =  rooms.get(id)[3];
 			document.getElementById("imgLoad").style.display = "inline";
 			$.post('<c:url value="/broom/broomeServlet"/>', x).fail(function() {
 				alert("新增失敗");
@@ -217,6 +219,8 @@
 			document.getElementById("imgLoad").style.display = "inline";
 			$.post('<c:url value="/broom/broomeServlet"/>', x, function(data) {
 				$("#" + id).remove();
+			}).fail(function() {
+				alert("刪除失敗");  
 			}).always(function() {
 				document.getElementById("imgLoad").style.display = "none";
 			});
@@ -231,11 +235,14 @@
 				x["room_type" + i] = value[1];
 				console.log(value[1]);
 				x["rContext" + i] = value[2];
+				x["rtid" + i] =  value[3];
 				i++;
 			});
 			x.number = i;
 			$.post('<c:url value="/broom/broomeServlet"/>', x, function(data) {
 				document.getElementById("imgLoad").style.display = "none";
+			}).fail(function() {
+				alert("送出失敗");  
 			}).always(function() {
 				document.getElementById("imgLoad").style.display = "none";
 			});

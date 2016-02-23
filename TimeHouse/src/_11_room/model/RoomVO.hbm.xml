@@ -10,7 +10,7 @@
 			<generator class="assigned" />
 		</id>
 		<many-to-one name="roomType" class="_13_roomtype.model.RoomTypeVO"
-			fetch="select">
+			fetch="select" lazy="false">
 			<column name="roomType_id" />
 		</many-to-one>
 		<property name="rStatus" type="boolean">

@@ -1,6 +1,7 @@
 package _57_broom.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,9 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import _11_room.model.BroomService;
 import _11_room.model.RoomVO;
 import _13_roomtype.model.RoomTypeVO;
+import _57_broom.model.BroomService;
 
 @WebServlet(urlPatterns = { "/broom/broomeServlet" })
 public class BroomServlet extends HttpServlet {
@@ -70,13 +71,15 @@ public class BroomServlet extends HttpServlet {
 			String tempRStatus = req.getParameter("rStatus");
 			String rContext = req.getParameter("rContext");
 			String room_type = req.getParameter("room_type");
+			String temprTid = req.getParameter("rTid");
 			System.out.println("/broom/broomeServlet:room_type " + room_type);
 			// 驗證
 			// 轉換
 			Integer id = Integer.parseInt(tempId);
+			Integer rTid = Integer.parseInt(temprTid);
 			boolean rStatus = Boolean.valueOf(tempRStatus);
 			// 呼叫
-			bService.updateOneRoomStatus(id, rStatus, rContext, room_type);
+			bService.updateOneRoomStatus(id, rStatus, rContext, room_type,rTid);
 			// 不送回
 		} else if ("delOne".equals(action)) {
 			bService.deleteOneRoom(Integer.valueOf(req.getParameter("id")));
@@ -88,12 +91,15 @@ public class BroomServlet extends HttpServlet {
 			for (int l = 0; l < i; l++) {
 				String tempRoom_id = req.getParameter(String.format("room_id%d", l));
 				String tempRStatus = req.getParameter(String.format("rStatus%d", l));
+				String temprTid = req.getParameter("rTid");
 				Integer id = Integer.parseInt(tempRoom_id);
+				Integer rTid = Integer.parseInt(temprTid);
 				boolean rStatus = Boolean.valueOf(tempRStatus);
 				String rContext = req.getParameter(String.format("rContext%d", l));
 				String room_type = req.getParameter(String.format("room_type%d", l));
+				
 				System.out.println("testtttttt" + room_type);
-				bService.updateOneRoomStatus(id, rStatus, rContext, room_type);
+				bService.updateOneRoomStatus(id, rStatus, rContext, room_type,rTid);
 			}
 			// 呼叫model
 			// 不送回

@@ -18,6 +18,7 @@ import org.hibernate.Session;
 
 import _11_room.model.RoomVO;
 import _13_roomtype.model.RoomTypeVO;
+import _58_roomSche.model.RroomScheService;
 import hibernate.util.HibernateUtil;
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
@@ -82,7 +83,7 @@ public class RoomScheServlet extends HttpServlet {
 				Integer id = Integer.parseInt(tempRoom_id);
 				boolean rStatus = Boolean.valueOf(tempRStatus);
 				String rContext = req.getParameter(String.format("rContext%d", l));
-				rService.updateOneRoomStatus(id, rStatus, rContext);
+				rService.updateOneRoomStatus(id, rStatus,rContext);
 			}
 
 			// 呼叫

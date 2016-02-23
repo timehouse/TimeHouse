@@ -46,10 +46,13 @@
 				</div>
 			</div>
 
+<<<<<<< HEAD
+=======
 	<!--HEADER END-->
 </body>
 </html>v>
 	</div>
+>>>>>>> branch 'master' of https://github.com/timehouse/TimeHouse.git
 	<!--HEADER END-->
 </body>
 </html>
