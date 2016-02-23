@@ -15,7 +15,7 @@
 			<!--左上角logo-->
 			<div class="header">
 				<div class="logo_page">
-					<a href="index.jsp"><img src="images/logo_page.png" />
+					<a href="index.jsp"><img src="/TimeHouse/01_Client/images/logo_page.png" />
 						<h1>時光小屋</h1></a>
 				</div>
 				<div class="fat-nav">
@@ -46,13 +46,6 @@
 				</div>
 			</div>
 
-<<<<<<< HEAD
-=======
-	<!--HEADER END-->
-</body>
-</html>v>
-	</div>
->>>>>>> branch 'master' of https://github.com/timehouse/TimeHouse.git
 	<!--HEADER END-->
 </body>
 </html>
