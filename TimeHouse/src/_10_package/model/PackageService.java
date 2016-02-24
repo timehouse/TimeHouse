@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import _13_roomtype.model.RoomTypeVO;
 import hibernate.util.HibernateUtil;
 
 

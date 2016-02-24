@@ -35,7 +35,7 @@ public class PackageDAO implements Package_InterfaceDAO{
 			PackageDAO dao = new PackageDAO();
 			
 //			select皜祈岫
-			System.out.println(dao.select(1));			
+//			System.out.println(dao.select(1));			
 			
 //			List<PackageVO>皜祈岫
 //			List<PackageVO> beans= dao.select();
@@ -139,5 +139,18 @@ public class PackageDAO implements Package_InterfaceDAO{
 		return 0;
 	}
 	
+	//--------------查詢單一圖片---------------
+			
+	public byte[] getOnePic(int package_id){
+		PackageVO bean = new PackageVO();
+		bean = (PackageVO) getSession().get(PackageVO.class, package_id);
+		byte[] pic = bean.getPic();
+		return pic;
+	}
+	
+	//--------------嘗試新增張圖片，與新增其實是同個方法--------------
+	public void insertOnePic(PackageVO bean){
+		getSession().saveOrUpdate(bean);
+	}
 	
 }
