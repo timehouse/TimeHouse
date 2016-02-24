@@ -18,7 +18,7 @@ dependencies {						//宣告dependency library
 	
 	compile 'com.googlecode.json-simple:json-simple:1.1.1' //order calendar
 	compile 'org.glassfish:javax.json:1.0.2' //livemsg
-	compile 'javax.websocket:javax.websocket-api:1.1'  //livemsg
+	providedCompile 'javax.websocket:javax.websocket-api:1.1'  //livemsg
 	compile 'javax.mail:mail:1.4.7'  //mail
 	
 	

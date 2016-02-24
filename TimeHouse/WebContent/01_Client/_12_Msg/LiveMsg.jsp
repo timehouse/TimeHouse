@@ -4,11 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>聊天室</title>
 </head>
 <body>
+	<%@ include file="../header.jsp"%>
+	<div style="height:110px"></div>
+	這其實是個多人聊天室
 	<textarea cols="45" rows="10" id="messagesTextArea" readonly="readonly"></textarea><br/>
-	<input type="text" id="messageText" size="50">
+	<input type="hidden" id="userName" size="10" value="訪客">
+	<input type="text" id="messageText" size="50" onkeydown="enter()">
 	<input type="button" value="送出" onClick="sendMessage()">
 	<script type="text/javascript">
 	
@@ -18,17 +22,29 @@
 	    
 		var websocket = new WebSocket("ws://"+ host + webCtx + "/chat")
 		
+// 		var userName =  document.getElementById("userName");
+		
 		websocket.onmessage = function processMessage(message){
 			var jsonData = JSON.parse(message.data);
 			if(jsonData.message!=null){
 				messagesTextArea.value += jsonData.message + "\n";
 			}
 		}
+		
 		function sendMessage(){
-			websocket.send(messageText.value);
-			messageText.value="";
+			if(messageText.value!=""){
+				websocket.send(userName.value+":"+messageText.value);
+				messageText.value="";
+				}
 			
 		}
+// 		-----------判斷是否按下Enter-----------
+		function enter(){
+			if (event.keyCode == 13) {   // 13 為 enter 的鍵盤碼
+				sendMessage()
+		     }
+		}
 	</script>
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>
