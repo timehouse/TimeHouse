@@ -13,6 +13,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%-- 	<form action="<c:url value="/02_Server/_58_RoomSche/Service/submit"/>"> --%>
+<!-- 		<input type="text" name="beanList[0].name"> -->
+<!-- 		<input type="submit" value="123"> -->
+<!-- 	</form> -->
+
 	<form name="myForm" id="myForm"
 		action="<c:url value="/02_Server/_58_RoomSche/Service/listroom"/>"
 		method="post">
@@ -44,7 +49,8 @@
 		var rooms = new Map();
 		var roomsBackup = new Map();
 		<c:forEach var="room" items="${rooms}" >
-		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.room_type}", "${room.rContext}","${room.roomType.roomType_id}"]);
+		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.room_type}", "${room.rContext}",
+				"${room.roomType.roomType_id}" ]);
 		</c:forEach>
 		</c:if>
 		if (typeof (rooms) != "undefined") {
@@ -90,10 +96,11 @@
 					temp.room_type = rooms.get(id)[1];
 					temp.rContext = rooms.get(id)[2];
 					temp.roomType_id = rooms.get(id)[3];
+					json = json.concat(temp);
 					x.rooms = JSON.stringify(json);
 					document.getElementById("imgLoad").style.display = "inline";
 					$.post('<c:url value="/02_Server/_58_RoomSche/Service/submit"/>', x, function(data) {
-						alert(data);
+						console.log(data);
 						document.getElementById("imgLoad").style.display = "none";
 					}).fail(function(data) {
 						alert(data);

@@ -1,4 +1,4 @@
-package misc;
+package miscStruts;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import org.json.simple.parser.ParseException;
 
 import com.opensymphony.xwork2.conversion.TypeConversionException;
 
-public class JSONArrayTypeConverter extends StrutsTypeConverter {
+public class TypeConverterJSONArray extends StrutsTypeConverter {
 	private JSONArray json;
 
 	@Override

@@ -4,16 +4,32 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+	<!--[constant]struts.action.extension:struts的副檔名, 預設為action -->
 	<constant name="struts.action.extension" value="" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.multipart.maxSize" value="1073741824" />
+	<constant name="struts.devMode" value="false" />
 
-	<package name="_58_roomSche" extends="struts-default">
+	<!-- [package]namespace : 傳入請求的路徑 -->
+	<package name="_58_roomSche" extends="struts-default"
+		namespace="/02_Server/_58_RoomSche/Service">
 		<action name="listroom" class="_58_roomSche.controller.ListroomAction">
 			<result name="input">/02_Server/_58_RoomSche/RoomSche.jsp</result>
 			<result name="success">/02_Server/_58_RoomSche/RoomSche.jsp</result>
 		</action>
+		<!-- [action]method : excute改執行自定義方法 -->
 		<action name="submit" class="_58_roomSche.controller.SubmitAction">
-			<result name="input"></result>
-			<result name="success"></result>
+			<result name="input" type="stream">
+				<param name="contextType">text/html</param>
+				<param name="inputname">inputStream</param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result name="success" type="stream">
+				<param name="contextType">text/html</param>
+				<param name="inputname">inputStream</param>
+				<param name="bufferSize">1024</param>
+			</result>
 		</action>
 	</package>
 

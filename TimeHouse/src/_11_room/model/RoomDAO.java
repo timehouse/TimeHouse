@@ -28,13 +28,17 @@ public class RoomDAO implements RoomDAO_interface {
 	@Override
 	public void insert(RoomVO roomVO) {
 		Session session = this.getSession();
+		//避免session有舊VO
+		session.clear();
 		session.saveOrUpdate(roomVO);
 	}
 
 	@Override
 	public void update(RoomVO roomVO) {
 		Session session = this.getSession();
-		session.saveOrUpdate(roomVO);
+		//1.避免session有舊VO,2.可使roomVO變成set上傳
+		session.clear();
+		session.update(roomVO);
 	}
 
 	@Override
@@ -58,6 +62,7 @@ public class RoomDAO implements RoomDAO_interface {
 		List<RoomVO> list = null;
 		Query query = session.createQuery(GET_ALL_STMT);
 		list = query.list();
+		//避免session重複做Update
 		session.clear();
 		//System.out.println(session);
 		return list;

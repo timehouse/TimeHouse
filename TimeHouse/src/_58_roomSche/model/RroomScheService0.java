@@ -1,3 +1,4 @@
+/* 未使用struts,方法多為變數傳入而非ORM*/
 package _58_roomSche.model;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package misc;
+package miscStruts;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,7 +8,7 @@ import org.apache.struts2.util.StrutsTypeConverter;
 
 import com.opensymphony.xwork2.conversion.TypeConversionException;
 
-public class DateTypeConverter extends StrutsTypeConverter {
+public class TypeConverterDate extends StrutsTypeConverter {
 	private static SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
 	@Override
 	public Object convertFromString(Map context, String[] values, Class toClass) {
