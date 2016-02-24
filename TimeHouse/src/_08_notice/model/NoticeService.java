@@ -10,17 +10,17 @@ import hibernate.util.HibernateUtil;
 public class NoticeService {
 	private Notice_InterfaceDAO noticeDao = new NoticeDAO();
 	//查看所有公告
-		public List<NoticeVO> select(NoticeVO bean) {
+		public List<NoticeVO> select() {
 			List<NoticeVO> result = null;
-			if(bean!=null && bean.getNoticeId()!=0) {
-			NoticeVO temp = noticeDao.select(bean.getNoticeId());
-			if(temp!=null) {
+//			if(bean!=null && bean.getNoticeId()!=0) {
+//			NoticeVO temp = noticeDao.select(bean.getNoticeId());
+//			if(temp!=null) {
 				result = new ArrayList<NoticeVO>();
-				result.add(temp);
-			}
-			} else {
+//				result.add(temp);
+//			}
+//			} else {
 			result = noticeDao.selectall(); 
-			}
+//			}
 			return result;
 			}
 	
@@ -63,7 +63,7 @@ public class NoticeService {
 //			NoticeVO in = service.insert(bean);
 //			System.out.println("insert:"+in);
 	//selectAll		
-			List<NoticeVO> beans = service.select(null);
+			List<NoticeVO> beans = service.select();
 			System.out.println("selectAll:"+beans);
 	//update
 //			bean.setNoticeId(5);

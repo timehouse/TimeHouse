@@ -28,8 +28,8 @@
 	<h3><a href="<c:url value="/01_Client/.jsp"/>">10設施列表(目前無，之前併到後端)</a></h3>
 	<h3><a href="<c:url value="/client/MemberMailServlet.controller"/>">11會員的聯絡飯店訊息</a></h3>
 	<h3><a href="<c:url value="/01_Client/_11_MailHotel/MailHotel.jsp"/>">11聯絡飯店</a></h3>
-	<h3><a href="<c:url value="/01_Client/_12_Msg/LiveMsg.jsp"/>">12即時客服(目前無法使用，gradle問題)</a></h3>
-	<h3><a href="<c:url value="/01_Client/.jsp"/>">13最新消息(目前無，之前併到後端)</a></h3>
+	<h3><a href="<c:url value="/01_Client/_12_Msg/LiveMsg.jsp"/>">12即時客服(用前要去server刪掉javax.websocket)</a></h3>
+	<h3><a href="<c:url value="/01_Client/_13_News/News.jsp"/>">13最新消息</a></h3>
 	<h3>14飯店介紹、15訂房須知</h3>
 	<h3><a href="<c:url value="/01_Client/.jsp"/>">16.17位置+景點(檔案未給)</a></h3>
 	<h3><a href="<c:url value="/01_Client/.jsp"/>">18留言版(目前無，需要確定網址才能用FB)</a></h3>

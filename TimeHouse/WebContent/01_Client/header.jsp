@@ -21,7 +21,7 @@
 				<div class="fat-nav">
 					<div class="fat-nav__wrapper">
 						<ul>
-							<li><a href="news.html">最新消息</a></li>
+							<li><a href="/TimeHouse/01_Client/_13_News/News.jsp">最新消息</a></li>
 							<li><a href="rooms.html">小屋介紹</a></li>
 							<li><a href=".html">房型導覽</a></li>
 							<li><a href="facilities.html">服務設施</a></li>

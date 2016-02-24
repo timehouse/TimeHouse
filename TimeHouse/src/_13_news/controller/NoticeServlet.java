@@ -108,7 +108,7 @@ public class NoticeServlet extends HttpServlet {
 					
 					if(error!=null && !error.isEmpty()){
 						request.getRequestDispatcher(
-								"/01_Client/_13_News/News.jsp").forward(request, response);
+								"/02_Server/_53_News/NewsOut.jsp").forward(request, response);
 						return;
 					}
 					
@@ -126,10 +126,11 @@ public class NoticeServlet extends HttpServlet {
 		
 	   //根據model執行結果顯示view		
 					if("Select".equals(prodaction)) {
-						List<NoticeVO> result = noticeService.select(bean);
+						List<NoticeVO> result = noticeService.select();
 						request.setAttribute("select", result);
 						request.getRequestDispatcher(
-								"/01_Client/_13_News/NewsOut.jsp").forward(request, response);
+								
+								"/02_Server/_53_News/NewsOut.jsp").forward(request, response);
 					}else if("Insert".equals(prodaction)) {
 						NoticeVO result = noticeService.insert(bean);
 						if(result==null) {
@@ -138,16 +139,16 @@ public class NoticeServlet extends HttpServlet {
 							request.setAttribute("insert", result);
 						}
 						request.getRequestDispatcher(
-								"/01_Client/_13_News/NewsOut.jsp").forward(request, response);
+								"/02_Server/_53_News/NewsOut.jsp").forward(request, response);
 					}else if("Update".equals(prodaction)) {
 						noticeService.update(bean);
 							
 						request.getRequestDispatcher(
-								"/01_Client/_13_News/NewsOut.jsp").forward(request, response);
+								"/02_Server/_53_News/NewsOut.jsp").forward(request, response);
 					}else {
 						error.put("action", "Unknown action: "+prodaction);
 						request.getRequestDispatcher(
-								"/01_Client/_13_News/NewsOut.jsp").forward(request, response);
+								"/02_Server/_53_News/News.jsp").forward(request, response);
 					}
 	}
 

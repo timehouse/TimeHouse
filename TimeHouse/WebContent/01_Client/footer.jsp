@@ -16,7 +16,7 @@
 			<div class="FooterLogo">
 				<a href="/TimeHouse/01_Client/index.jsp">時光小屋TimeHouse</a>
 			</div>
-			<a href=".html">最新消息</a>
+			<a href="/TimeHouse/01_Client/_13_News/News.jsp">最新消息</a>
 			<a href="news.html">小屋介紹</a>
 			<a href=".html">房型導覽</a> 
 			<a href="facilities.html">服務設施</a>
