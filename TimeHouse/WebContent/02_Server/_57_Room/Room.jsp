@@ -32,7 +32,7 @@
 			</tr>
 		</thead>
 		<tbody id="tb">
-
+		
 		</tbody>
 	</table>
 	
@@ -184,6 +184,7 @@
 		function room_type() {
 			var id = $(this).parents("tr").attr("id");
 			rooms.get(id)[1] = $(this).children("option:selected").text();
+			console.log(this);
 			rooms.get(id)[3] = this.value;
 			//console.log($(this).val());
 			console.log(rooms.get(id)[1]);
@@ -211,6 +212,7 @@
 				document.getElementById("imgLoad").style.display = "none";
 			});
 		}
+		
 		function delOne() {
 			var id = $(this).parents("tr").attr("id");
 			var x = {};
@@ -225,6 +227,7 @@
 				document.getElementById("imgLoad").style.display = "none";
 			});
 		}
+
 		function AllSubmit() {
 			document.getElementById("imgLoad").style.display = "inline";
 			var x = {}, i = 0;
@@ -233,9 +236,8 @@
 				x["room_id" + i] = key;
 				x["rStatus" + i] = value[0];
 				x["room_type" + i] = value[1];
-				console.log(value[1]);
 				x["rContext" + i] = value[2];
-				x["rtid" + i] =  value[3];
+				x["rTid" + i] =  value[3];
 				i++;
 			});
 			x.number = i;

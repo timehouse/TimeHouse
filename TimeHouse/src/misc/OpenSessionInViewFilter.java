@@ -16,9 +16,6 @@ import org.hibernate.HibernateException;
 
 import hibernate.util.HibernateUtil;
 
-@WebFilter(
-		urlPatterns={"/*"}
-) 
 public class OpenSessionInViewFilter implements Filter {
 	private FilterConfig filterConfig;
 	@Override

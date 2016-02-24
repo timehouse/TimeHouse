@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.action.extension" value="" />
+
+	<package name="_58_roomSche" extends="struts-default">
+		<action name="listroom" class="_58_roomSche.controller.ListroomAction">
+			<result name="input">/02_Server/_58_RoomSche/RoomSche.jsp</result>
+			<result name="success">/02_Server/_58_RoomSche/RoomSche.jsp</result>
+		</action>
+		<action name="submit" class="_58_roomSche.controller.SubmitAction">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+	</package>
+
+</struts>
+
