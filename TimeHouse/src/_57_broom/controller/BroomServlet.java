@@ -79,7 +79,7 @@ public class BroomServlet extends HttpServlet {
 			Integer rTid = Integer.parseInt(temprTid);
 			boolean rStatus = Boolean.valueOf(tempRStatus);
 			// 呼叫
-			bService.updateOneRoomStatus(id, rStatus, rContext, room_type,rTid);
+			bService.updateOneRoomStatus(id, rStatus, rContext, room_type, rTid);
 			// 不送回
 		} else if ("delOne".equals(action)) {
 			bService.deleteOneRoom(Integer.valueOf(req.getParameter("id")));
@@ -91,8 +91,8 @@ public class BroomServlet extends HttpServlet {
 			for (int l = 0; l < i; l++) {
 				String tempRoom_id = req.getParameter(String.format("room_id%d", l));
 				String tempRStatus = req.getParameter(String.format("rStatus%d", l));
-				String temprTid = req.getParameter("rTid");
-				Integer id = Integer.parseInt(tempRoom_id);
+				String temprTid = req.getParameter(String.format("rTid%d", l));
+				Integer id = Integer.parseInt(tempRoom_id);       
 				Integer rTid = Integer.parseInt(temprTid);
 				boolean rStatus = Boolean.valueOf(tempRStatus);
 				String rContext = req.getParameter(String.format("rContext%d", l));

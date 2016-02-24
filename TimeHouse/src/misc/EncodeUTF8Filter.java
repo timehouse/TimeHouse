@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(urlPatterns = { "/02_Server/_56_RoomType/*", "/02_Server/_57_Room/*", "/02_Server/_58_RoomSche/*" })
+//@WebFilter(urlPatterns = { "/02_Server/_56_RoomType/*", "/02_Server/_57_Room/*", "/02_Server/_58_RoomSche/*" })
 public class EncodeUTF8Filter implements Filter {
 
 	@Override

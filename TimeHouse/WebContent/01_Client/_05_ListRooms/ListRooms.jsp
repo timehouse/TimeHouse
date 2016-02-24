@@ -30,7 +30,7 @@
 					<th>雅致客房</th>
 					<th></th>
 					<th></th>
-					<img src='${pageContext.servletContext.contextPath}/img/roomPics/雅1.jpg'>
+<%-- 					<img src='${pageContext.servletContext.contextPath}/img/roomPics/雅1.jpg'> --%>
 				</tr>
 			</thead>
 			<tbody>

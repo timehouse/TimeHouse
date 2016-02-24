@@ -9,7 +9,7 @@ import _11_room.model.RoomDAO_interface;
 import _11_room.model.RoomVO;
 import hibernate.util.HibernateUtil;
 
-public class RroomScheService {
+public class RroomScheService0 {
  
     private RoomDAO_interface roomDAO = new RoomDAO();
 
@@ -22,16 +22,16 @@ public class RroomScheService {
     	return roomDAO.findByPrimaryKey(room_id);
     }
     
-    public void updateOneRoomStatus(RoomVO rVo) {
-	//必定有id 
-	roomDAO.update(rVo);
-    }
-//    public void updateOneRoomStatus(Integer id, boolean rStatus,String rContext) {
-//	//必定有id
-//    RoomVO rVo =roomDAO.findByPrimaryKey(id);
-//	rVo.setrStatus(rStatus);
-//	rVo.setrContext(rContext);
+//    public void updateOneRoomStatus(RoomVO rVo) {
+//	//必定有id 
 //	roomDAO.update(rVo);
 //    }
+    public void updateOneRoomStatus(Integer id, boolean rStatus,String rContext) {
+	//必定有id
+    RoomVO rVo =roomDAO.findByPrimaryKey(id);
+	rVo.setrStatus(rStatus);
+	rVo.setrContext(rContext);
+	roomDAO.update(rVo);
+    }
    
 }

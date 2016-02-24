@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import _11_room.model.RoomVO;
 import _58_roomSche.model.RroomScheService;
+import _58_roomSche.model.RroomScheService0;
 
 //開始做驗證和錯誤訊息,全部都用doget
-//@WebServlet(urlPatterns = { "/roomSche/roomScheServlet" })
-@WebServlet(urlPatterns = { "/02_Server/_58_RoomSche/roomScheServlet" })
+@WebServlet(urlPatterns = { "/roomSche/roomScheServlet" })
 public class RoomScheServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 209251350521474080L;
@@ -30,7 +30,7 @@ public class RoomScheServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RroomScheService rService = new RroomScheService();
+		RroomScheService0 rService = new RroomScheService0();
 		// 抓取服務名稱
 		String action = req.getParameter("action");
 		System.out.println(action);
@@ -50,7 +50,7 @@ public class RoomScheServlet extends HttpServlet {
 	}
 
 	private void AllSubmitServ(HttpServletRequest req, HttpServletResponse resp, Map<String, String> errors,
-			RroomScheService rService) {
+			RroomScheService0 rService) {
 		// 接收&驗證&驗證資料量
 		String tempLength = req.getParameter("number");
 		Integer length = null;
@@ -104,7 +104,7 @@ public class RoomScheServlet extends HttpServlet {
 
 	@SuppressWarnings("rawtypes")
 	private void subOneServ(HttpServletRequest req, HttpServletResponse resp, Map<String, String> errors,
-			RroomScheService rService) throws IOException {
+			RroomScheService0 rService) throws IOException {
 		// 接收
 		String tempId = req.getParameter("id");
 		String tempRStatus = req.getParameter("rStatus");
@@ -143,7 +143,7 @@ public class RoomScheServlet extends HttpServlet {
 	}
 
 	private void listroom(HttpServletRequest req, HttpServletResponse resp, Map<String, String> errors,
-			RroomScheService rService) throws ServletException, IOException {
+			RroomScheService0 rService) throws ServletException, IOException {
 		// 接收
 		String roomIdTemp = req.getParameter("roomId");
 		List<RoomVO> roomlist = new LinkedList<RoomVO>();

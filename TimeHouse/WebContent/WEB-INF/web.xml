@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>TimeHouse</display-name>
+  <display-name>MyTimeHouse</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
@@ -35,13 +35,21 @@
     <url-pattern>/forgetPassword.controller</url-pattern>
   </servlet-mapping>
   <filter>
+    <filter-name>OpenSessionInViewFilter</filter-name>
+    <filter-class>misc.OpenSessionInViewFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>OpenSessionInViewFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
     <filter-name>StrutsPrepareAndExecuteFilter2</filter-name>
     <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>StrutsPrepareAndExecuteFilter2</filter-name>
-    <url-pattern>/02_Server/_56_RoomType/*</url-pattern>
-    <url-pattern>/02_Server/_57_Room/*</url-pattern>
-    <url-pattern>/02_Server/_58_RoomSche/*</url-pattern>
+    <url-pattern>/02_Server/_56_RoomType/Service/*</url-pattern>
+    <url-pattern>/02_Server/_57_Room/Service/*</url-pattern>
+    <url-pattern>/02_Server/_58_RoomSche/Service/*</url-pattern>
   </filter-mapping>
 </web-app>

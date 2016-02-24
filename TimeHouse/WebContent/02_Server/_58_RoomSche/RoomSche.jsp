@@ -14,11 +14,11 @@
 </head>
 <body>
 	<form name="myForm" id="myForm"
-		action="<c:url value="/02_Server/_58_RoomSche/roomScheServlet"/>" method="post">
-		<input type="text" placeholder="roomId" name="roomId"> 
-		${errors.roomId} <br>
-		<input type="submit" name="action" id='b1' value="listroom" />
-		<input type="button" value="AllSubmit" id="AllSubmit" name="AllSubmit" />
+		action="<c:url value="/02_Server/_58_RoomSche/Service/listroom"/>"
+		method="post">
+		<input type="text" placeholder="roomId" name="roomId">
+		${errors.roomId} <br> <input type="submit" value="顯示房間" /> <input
+			type="button" value="AllSubmit" id="AllSubmit" name="AllSubmit" />
 	</form>
 	<table class="table table-border">
 		<thead>
@@ -44,10 +44,12 @@
 		var rooms = new Map();
 		var roomsBackup = new Map();
 		<c:forEach var="room" items="${rooms}" >
-		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.room_type}", "${room.rContext}"] );
+		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.room_type}", "${room.rContext}","${room.roomType.roomType_id}"]);
 		</c:forEach>
 		</c:if>
-		console.log(rooms.get("101"));
+		if (typeof (rooms) != "undefined") {
+			console.log(JSON.stringify(rooms));
+		}
 
 		$(function() {
 			callListroom();
@@ -58,7 +60,7 @@
 				//清空Tbody
 				$("#tb").empty();
 				rooms.forEach(listroom);
-				
+
 				//綁定變化
 				$("#tb").on("change", "input:radio", function() {
 					var id = $(this).parents("tr").attr("id");
@@ -76,43 +78,58 @@
 					$("#" + eval(id) + " input:radio[value=" + roomsBackup.get(id)[0] + "]").prop("checked", true);
 					$("#" + eval(id) + " input:text[name=rContext]").val(roomsBackup.get(id)[2]);
 				});
-				
+
 				//綁定submit鈕
 				$("#tb").on("click", "a[name=subOne]", function() {
 					var id = $(this).parents("tr").attr("id");
 					var x = {};
-					x.action=this.name;
-					x.id=id;
-					x.rStatus=rooms.get(id)[0];
-					x.rContext=rooms.get(id)[2];
-					document.getElementById("imgLoad").style.display="inline";
-					$.post('<c:url value="/02_Server/_58_RoomSche/roomScheServlet"/>',x, function(data) {
+					var json = new Array();
+					var temp = new Object();
+					temp.room_id = id;
+					temp.rStatus = rooms.get(id)[0];
+					temp.room_type = rooms.get(id)[1];
+					temp.rContext = rooms.get(id)[2];
+					temp.roomType_id = rooms.get(id)[3];
+					x.rooms = JSON.stringify(json);
+					document.getElementById("imgLoad").style.display = "inline";
+					$.post('<c:url value="/02_Server/_58_RoomSche/Service/submit"/>', x, function(data) {
 						alert(data);
-						document.getElementById("imgLoad").style.display="none";
-					}).fail(function(data){
+						document.getElementById("imgLoad").style.display = "none";
+					}).fail(function(data) {
 						alert(data);
 					});
 				});
 				//全部送出
-				$("#AllSubmit").bind("click", function(){
-					document.getElementById("imgLoad").style.display="inline";
-					var x = {}, i=0;
-					x.action=this.name;
-					rooms.forEach(function(value,key,map){
-						x["room_id"+i]=key;
-						x["rStatus"+i]=value[0];
-						x["rContext"+i]=value[2];
+				$("#AllSubmit").bind("click", function() {
+					document.getElementById("imgLoad").style.display = "inline";
+					var x = {}, i = 0;
+					//使用map傳入
+					// 					rooms.forEach(function(value,key,map){
+					// 						x["room_id"+i]=key;
+					// 						x["rStatus"+i]=value[0];
+					// 						x["rContext"+i]=value[2];
+					// 						i++;
+					// 					});
+					// 					x.number=i;
+					var json = new Array();
+					rooms.forEach(function(value, key, map) {
+						var temp = new Object();
+						temp.room_id = key;
+						temp.rStatus = value[0];
+						temp.room_type = value[1];
+						temp.rContext = value[2];
+						temp.roomType_id = value[3];
+						json = json.concat(temp);
 						i++;
 					});
-					x.number=i;
-					$.post('<c:url value="/02_Server/_58_RoomSche/roomScheServlet"/>',
-							x, 
-							function(data) {
+					x.rooms = JSON.stringify(json);
+					$.post('<c:url value="/02_Server/_58_RoomSche/Service/submit"/>', x, function(data) {
 						alert(data);
-						document.getElementById("imgLoad").style.display="none";
+						document.getElementById("imgLoad").style.display = "none";
 					});
 				});
-			};
+			}
+			;
 		}
 		//${room.rStatus}", "${room.room_type}", "${room.rContext}
 

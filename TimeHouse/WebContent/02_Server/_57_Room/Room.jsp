@@ -227,6 +227,7 @@
 				document.getElementById("imgLoad").style.display = "none";
 			});
 		}
+
 		function AllSubmit() {
 			document.getElementById("imgLoad").style.display = "inline";
 			var x = {}, i = 0;
@@ -235,9 +236,8 @@
 				x["room_id" + i] = key;
 				x["rStatus" + i] = value[0];
 				x["room_type" + i] = value[1];
-				console.log(value[1]);
 				x["rContext" + i] = value[2];
-				x["rtid" + i] =  value[3];
+				x["rTid" + i] =  value[3];
 				i++;
 			});
 			x.number = i;
