@@ -37,8 +37,6 @@ public class RoomTypeDAO implements RoomTypeDAO_interface {
     @Override
     public void update(RoomTypeVO roomTypeVO) {
 	Session session = this.getSession();
-	// 1.避免session有舊VO,2.可使roomVO變成set上傳
-	session.clear();
 	session.saveOrUpdate(roomTypeVO);
     }
 
