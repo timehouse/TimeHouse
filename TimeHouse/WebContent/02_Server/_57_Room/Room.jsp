@@ -11,10 +11,10 @@
 </head>
 <body>
 	<form name="myForm" id="myForm"
-		action="<c:url value="/broom/broomeServlet"/>" method="post">
+		action="<c:url value="/02_Server/_57_Room/Service/listroom"/>" method="post">
 		<input type="text" placeholder="roomid" name="roomid" id="roomid">
 		<input type="text" placeholder="roomid2" name="roomid2" id="roomid2">
-		<input type="submit" name="action" id='b1' value="listroom" /> <input
+		<input type="submit" name="action" id='b1' value="顯示所有房間" /> <input
 			type="button" value="AllSubmit" id="AllSubmit" name="AllSubmit" /> <input
 			type="button" value="addRoom" id="addRoom" name="addRoom" />
 			<input type="button" value="delRoom" id="delRoom" name="delRoom" />
@@ -45,7 +45,7 @@
 		var rooms = new Map();
 		var roomsBackup = new Map();
 		<c:forEach var="room" items="${rooms}" >
-		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.roomType.room_type}".trim(), "${room.rContext}", "${room.roomType.roomType_id}"]);
+		rooms.set("${room.room_id}", [ "${room.rStatus}", "${room.roomType.room_type}".trim(), "${room.rContext}".trim(), "${room.roomType.roomType_id}"]);
 		</c:forEach>
 		</c:if>
 		//		console.log(rooms.get("101"));
@@ -94,11 +94,10 @@
 		function addRoom() {
 			document.getElementById("imgLoad").style.display = "inline";
 			var x = {};
-			x.action = 'addRoom';
-			x.room_id = $("#roomid").val();
-			x.room_id2 = $("#roomid2").val();
-			$.post('<c:url value="/broom/broomeServlet"/>', x, function(data) {
-				window.location = '<c:url value="/broom/broomeServlet?action=listroom"/>';
+			x.roomid = $("#roomid").val();
+			x.roomid2 = $("#roomid2").val();
+			$.post('<c:url value="/02_Server/_57_Room/Service/addRoom"/>', x, function(data) {
+				window.location = '<c:url value="/02_Server/_57_Room/Service/listroom"/>';
 			}).fail(function() {
 				alert("新增失敗");
 			}).always(function() {
@@ -108,11 +107,10 @@
 		function delRoom(){
 			document.getElementById("imgLoad").style.display = "inline";
 			var x = {};
-			x.action = 'delRoom';
-			x.room_id = $("#roomid").val();
-			x.room_id2 = $("#roomid2").val();
-			$.post('<c:url value="/broom/broomeServlet"/>', x, function(data) {
-				window.location = '<c:url value="/broom/broomeServlet?action=listroom"/>';
+			x.roomid = $("#roomid").val();
+			x.roomid2 = $("#roomid2").val();
+			$.post('<c:url value="/02_Server/_57_Room/Service/delRoom"/>', x, function(data) {
+				window.location = '<c:url value="/02_Server/_57_Room/Service/listroom"/>';
 			}).fail(function() {
 				alert("刪除失敗,請洽管理員");
 			}).always(function() {
@@ -198,15 +196,19 @@
 			var id = $(this).parents("tr").attr("id");
 			var x = {};
 			x.action = this.name;
-			x.id = id;
-//			rooms.set("${room.room_id}", 
-// 			[ "${room.rStatus}", "${room.roomType.room_type}".trim(), "${room.rContext}"]);
-			x.rStatus = rooms.get(id)[0];
-			x.room_type = rooms.get(id)[1];
-			x.rContext = rooms.get(id)[2];
-			x.rTid =  rooms.get(id)[3];
+			var json = new Array();
+			var temp = new Object();
+			temp.room_id = id;
+			temp.rStatus = rooms.get(id)[0];
+			temp.room_type = rooms.get(id)[1];
+			temp.rContext = rooms.get(id)[2];
+			temp.roomType_id = rooms.get(id)[3];
+			json = json.concat(temp);
+			x.rooms = JSON.stringify(json);
 			document.getElementById("imgLoad").style.display = "inline";
-			$.post('<c:url value="/broom/broomeServlet"/>', x).fail(function() {
+			$.post('<c:url value="/02_Server/_58_RoomSche/Service/submit"/>', x, function(data) {
+				console.log(data);
+			}).fail(function() {
 				alert("新增失敗");
 			}).always(function() {
 				document.getElementById("imgLoad").style.display = "none";
@@ -216,10 +218,10 @@
 		function delOne() {
 			var id = $(this).parents("tr").attr("id");
 			var x = {};
-			x.action = this.name;
-			x.id = id;
+			x.roomid = id;
 			document.getElementById("imgLoad").style.display = "inline";
-			$.post('<c:url value="/broom/broomeServlet"/>', x, function(data) {
+			$.post('<c:url value="/02_Server/_57_Room/Service/delRoom"/>', x, function(data) {
+				alert(data);
 				$("#" + id).remove();
 			}).fail(function() {
 				alert("刪除失敗");  
@@ -241,7 +243,7 @@
 				i++;
 			});
 			x.number = i;
-			$.post('<c:url value="/broom/broomeServlet"/>', x, function(data) {
+			$.post('<c:url value="/02_Server/_57_Room/Service/submit"/>', x, function(data) {
 				document.getElementById("imgLoad").style.display = "none";
 			}).fail(function() {
 				alert("送出失敗");  

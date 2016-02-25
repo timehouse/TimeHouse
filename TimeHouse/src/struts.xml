@@ -3,6 +3,16 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
+<!-- <package name="templete" extends="struts-default"> -->
+<!-- <action name="submit" class="_58_roomSche.controller.SubmitAction"> -->
+<!-- <result name="input" type="stream"> -->
+<!-- <param name="contextType">text/html</param> -->
+<!-- <param name="inputname">inputStream</param> -->
+<!-- <param name="bufferSize">1024</param> -->
+<!-- </result> -->
+<!-- </action> -->
+<!-- </package> -->
+
 <struts>
 	<!--[constant]struts.action.extension:struts的副檔名, 預設為action -->
 	<constant name="struts.action.extension" value="" />
@@ -26,12 +36,38 @@
 				<param name="bufferSize">1024</param>
 			</result>
 			<result name="success" type="stream">
-				<param name="contextType">text/html</param>
 				<param name="inputname">inputStream</param>
-				<param name="bufferSize">1024</param>
 			</result>
 		</action>
 	</package>
+	<package name="_57_broom" extends="struts-default" namespace="/02_Server/_57_Room/Service">
+		<action name="listroom" class="_57_broom.controller.ListroomAction">
+			<result name="input">/02_Server/_57_Room/Room.jsp</result>
+			<result name="success">/02_Server/_57_Room/Room.jsp</result>
+		</action>
 
+		<action name="submit" class="_57_broom.controller.SubmitAction">
+			<result name="input" type="stream">
+				<param name="inputname">inputStream</param>
+			</result>
+			<result name="success" type="stream">
+				<param name="inputname">inputStream</param>
+			</result>
+		</action>
+
+		<action name="delRoom" class="_57_broom.controller.delRoomAction">
+			<result name="input" type="stream">
+				<param name="inputname">inputStream</param>
+			</result>
+			<result name="success" type="stream">
+				<param name="inputname">inputStream</param>
+			</result>
+		</action>
+		<action name="addRoom" class="_57_broom.controller.addRoomAction">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+
+	</package>
 </struts>
 

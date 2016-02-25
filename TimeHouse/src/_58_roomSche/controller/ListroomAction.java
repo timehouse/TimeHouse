@@ -23,7 +23,7 @@ public class ListroomAction extends ActionSupport implements RequestAware, Sessi
     // 輸入
     private Map<String, Object> session;
     private Map<String, Object> request;
-    Integer roomId;
+    Integer roomid;
 
     // 預備變數
     private RroomScheService rService = new RroomScheService();
@@ -33,8 +33,8 @@ public class ListroomAction extends ActionSupport implements RequestAware, Sessi
     
 	List<RoomVO> roomlist = new LinkedList<RoomVO>();
 	// 判斷是列單房還是列全房呼叫model
-	if (roomId != null) {
-	    RoomVO roomVO = rService.getOneRoom(roomId);
+	if (roomid != null) {
+	    RoomVO roomVO = rService.getOneRoom(roomid);
 	    if (roomVO != null) {
 		roomlist.add(roomVO);
 	    }
@@ -64,11 +64,11 @@ public class ListroomAction extends ActionSupport implements RequestAware, Sessi
     }
 
     public Integer getRoomId() {
-        return roomId;
+        return roomid;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoomId(Integer roomid) {
+        this.roomid = roomid;
     }
 
     

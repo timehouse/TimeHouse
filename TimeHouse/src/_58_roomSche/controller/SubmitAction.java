@@ -29,6 +29,7 @@ public class SubmitAction extends ActionSupport implements RequestAware, Session
 	try {
 	    System.out.println(rooms.getRoomVOs());
 	    List<RoomVO> list = rooms.getRoomVOs();
+	    
 	    for (int i = 0; i < list.size(); i++) {
 		rService.updateOneRoomStatus(list.get(i));
 	    }
@@ -40,14 +41,10 @@ public class SubmitAction extends ActionSupport implements RequestAware, Session
 	}
     }
 
-    @Override
-    public void validate() {
-	super.validate();
-    }
-
     //驗證錯誤會呼叫此方法
     @Override
     public boolean hasErrors() {
+    
 	this.getFieldErrors().forEach((k,v)->{
 	    ((List<String>) v).forEach((x)->System.out.println(k+":"+x));
 	});

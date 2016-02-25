@@ -10,19 +10,26 @@
 <%-- <link rel="stylesheet" href='<c:url value="/css/justified-nav.css"/>'> --%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
 <title>Insert title here</title>
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
 </head>
 <body>
-<%-- 	<form action="<c:url value="/02_Server/_58_RoomSche/Service/submit"/>"> --%>
-<!-- 		<input type="text" name="beanList[0].name"> -->
-<!-- 		<input type="submit" value="123"> -->
-<!-- 	</form> -->
+	<%-- 	<form action="<c:url value="/02_Server/_58_RoomSche/Service/submit"/>"> --%>
+	<!-- 		<input type="text" name="beanList[0].name"> -->
+	<!-- 		<input type="submit" value="123"> -->
+	<!-- 	</form> -->
 
 	<form name="myForm" id="myForm"
 		action="<c:url value="/02_Server/_58_RoomSche/Service/listroom"/>"
 		method="post">
-		<input type="text" placeholder="roomId" name="roomId">
-		${errors.roomId} <br> <input type="submit" value="顯示房間" /> <input
+		<input type="text" placeholder="roomid" name="roomid">
+		${errors.roomid} <br> <input type="submit" value="顯示房間" /> <input
 			type="button" value="AllSubmit" id="AllSubmit" name="AllSubmit" />
 	</form>
 	<table class="table table-border">
@@ -79,14 +86,14 @@
 					console.log(rooms.get(id));
 				});
 				//綁定reset鈕
-				$("#tb").on("click", "a[name=res]", function() {
+				$("#tb").on("click", "button[name=res]", function() {
 					var id = $(this).parents("tr").attr("id");
 					$("#" + eval(id) + " input:radio[value=" + roomsBackup.get(id)[0] + "]").prop("checked", true);
 					$("#" + eval(id) + " input:text[name=rContext]").val(roomsBackup.get(id)[2]);
 				});
 
 				//綁定submit鈕
-				$("#tb").on("click", "a[name=subOne]", function() {
+				$("#tb").on("click", "button[name=subOne]", function() {
 					var id = $(this).parents("tr").attr("id");
 					var x = {};
 					var json = new Array();
@@ -101,9 +108,10 @@
 					document.getElementById("imgLoad").style.display = "inline";
 					$.post('<c:url value="/02_Server/_58_RoomSche/Service/submit"/>', x, function(data) {
 						console.log(data);
-						document.getElementById("imgLoad").style.display = "none";
 					}).fail(function(data) {
 						alert(data);
+					}).always(function(){
+						document.getElementById("imgLoad").style.display = "none";
 					});
 				});
 				//全部送出
@@ -130,10 +138,12 @@
 						i++;
 					});
 					x.rooms = JSON.stringify(json);
+					console.log(x.rooms);
 					$.post('<c:url value="/02_Server/_58_RoomSche/Service/submit"/>', x, function(data) {
 						alert(data);
+					}).always(function(){
 						document.getElementById("imgLoad").style.display = "none";
-					});
+					});;
 				});
 			}
 			;
@@ -155,11 +165,19 @@
 
 			var text5 = $("<input type='text' name='rContext'/>").val(value[2]);
 			var cell5 = $("<td></td").append(text5);
-
-			var cell6 = $("<td></td").html('<a href="#" class="btn btn-danger reset" >del</a>');
-
-			var cell6 = $("<td></td").html('<a href="#" class="btn btn-danger" name="res">reset</a>');
-			var cell7 = $("<td></td").html('<a href="#" class="btn btn-danger" name="subOne">submit</a>');
+			
+			//留意Atrribute要空一格
+			var BtnHtml = '<span class="glyphicon glyphicon-trash"></span>'		
+			var BtnAtr =' type="button" class="btn btn-primary btn-xs" data-title="Recover" name="res"';
+			var cell6Btn = $("<button"+BtnAtr+">"+BtnHtml+"</button>");
+			var cell6 = $("<td></td").append(cell6Btn);
+// 			var cell6 = $("<td></td").html('<a href="#" class="btn btn-primary btn-xs" data-title="Recover" name="res">reset</a>');
+			
+			var BtnHtml = '<span class="glyphicon glyphicon-floppy-disk"></span>'		
+			var BtnAtr =' type="button" class="btn btn-danger btn-xs" data-title="Delete" name="subOne"';
+			var cell6Btn = $("<button"+BtnAtr+">"+BtnHtml+"</button>");
+			var cell7 = $("<td></td").append(cell6Btn);
+// 			var cell7 = $("<td></td").html('<a href="#" class="btn btn-danger" data-title="Delete" name="subOne">submit</a>');
 			var tr = $("<tr id="+key+" name='room'></tr").append([ cell1, cell3, cell4, cell5, cell6, cell7 ]);
 
 			$("#tb").append(tr);
@@ -170,7 +188,6 @@
 			} else {
 				$(status2).prop("checked", true);
 			}
-
 		}
 	</script>
 </body>
